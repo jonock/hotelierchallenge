@@ -5,8 +5,8 @@ import csv
 import pandas as pd
 
 # Authentifizierung mit Twitter. Twitter API credentials. Sind auf der Twitter Developer Seite zu finden, wo ihr Euren Account gemacht habt.
-consumer_key = 'eNzGxqtNGa7OKlUNgTwagQN1K'
-consumer_secret = 'VZ7EawnfdNdWNx55h8qieiesjoOLBaQxE1lXs8qmFWVL0aiXJJ'
+consumer_key = 'tv5DEKmdKAcDfVLewKPcdht0F'
+consumer_secret = 'S2qJxQkJ6k8eBsvBCu8aJCVplsb5isOA2TsxlRX0YEaEuRw67J'
 access_token = '1100733514914451458-ssGNd28UDNCzGfJCzhy5YMz8o8enGC'
 access_token_secret = 'VBnFJgXRyaW7bdsYr27QHCBzd6CD8arcEOCRxdSpLCpeJ'
 
@@ -28,4 +28,4 @@ for tweet in tweepy.Cursor(api.search,q = deinhashtag,count=1,
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
 
 
-print('ERFOLG!!!!!!')
+print('ERFOLG!!!!!! - Wir sind die allergeilsten!!!!')
