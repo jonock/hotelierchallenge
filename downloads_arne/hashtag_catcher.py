@@ -15,7 +15,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
 
 # Hashtag hier eingeben
-deinhashtag = "#borussia"
+deinhashtag = "#rotblaulive"
 
 # Oeffnen und schreiben in die CSV Datei
 csvFile = open('%s_hashtag.csv' % deinhashtag, 'a')
