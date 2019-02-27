@@ -28,4 +28,4 @@ for tweet in tweepy.Cursor(api.search,q = deinhashtag,count=1,
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
 
 
-print('ERFOLG!!!!!! - Wir sind die allergeilsten!!!!')
+print('ERFOLG!!!!!! - Wir sind die allergeilsten!')
