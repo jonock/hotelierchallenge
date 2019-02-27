@@ -26,3 +26,6 @@ for tweet in tweepy.Cursor(api.search,q = deinhashtag,count=1,
                            since="2018-01-11").items():
     print (tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+
+
+print('ERFOLG!!!!!!')
