@@ -84,6 +84,7 @@ def parse(locality,checkin_date,checkout_date,sort):
         hotel_features = ','.join(raw_hotel_features)
         pricelen = (len(raw_hotel_price_per_night)) - 1
         r_price_night = raw_hotel_price_per_night[pricelen].encode('utf-8')
+        print(pricelen)
         price_per_night = ''.join(raw_hotel_price_per_night) if raw_hotel_price_per_night else None
         no_of_deals = re.findall("all\s+?(\d+)\s+?",''.join(raw_no_of_deals))
         booking_provider = ''.join(raw_booking_provider).strip() if raw_booking_provider else None
@@ -105,7 +106,6 @@ def parse(locality,checkin_date,checkout_date,sort):
                     'price_per_night':price_per_night,
                     'no_of_deals':no_of_deals,
                     'booking_provider':booking_provider
-
         }
         hotel_data.append(data)
     return hotel_data
@@ -135,13 +135,13 @@ if __name__ == '__main__':
     if today<datetime.strptime(checkIn,"%Y/%m/%d") and datetime.strptime(checkIn,"%Y/%m/%d")<datetime.strptime(checkOut,"%Y/%m/%d"):
         data = parse(locality,checkin_date,checkout_date,sort)
         print("Writing to output file tripadvisor_data.csv")
-        with open('tripadvisor_data.csv','wb') as csvfile:
+        with open('scrapes/tripadvisor_data_' + str(locality) + '_' + str(datetime.now())+'.csv','wb') as csvfile:
             fieldnames = ['hotel_name','url','locality','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for row in data:
                 writer.writerow(row)
-            print(len(data) + 'Hotels gespeichert. Jonathan ist der beste.')
+            print(str(len(data)) + ' Hotels gespeichert. Jonathan ist der beste.')
     #checking whether the entered date is already passed
     elif today>datetime.strptime(checkIn,"%Y/%m/%d") or today>datetime.strptime(checkOut,"%Y/%m/%d"):
         print("Invalid Checkin date: Please enter a valid checkin and checkout dates,entered date is already passed")
