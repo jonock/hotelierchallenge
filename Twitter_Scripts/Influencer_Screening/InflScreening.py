@@ -8,7 +8,9 @@
 ### and adds info regarding followers count and retweets etc.
 
 
-#Issues: amount of tweets is not ideal,sort csv
+###Issues / Improvements:
+    #amount of tweets is not ideal,
+    #sort csv to show highest potential influencer first
 
 
 
