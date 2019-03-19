@@ -8,7 +8,8 @@
 ### and adds info regarding followers count and retweets etc.
 
 
-#Issues: amount of tweets is not ideal,
+#Issues: amount of tweets is not ideal,sort csv
+
 
 
 import tweepy
