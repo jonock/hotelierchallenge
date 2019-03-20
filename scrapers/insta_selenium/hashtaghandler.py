@@ -2,6 +2,7 @@ import time
 from selenium import webdriver
 import csv
 from datetime import datetime
+from selenium.webdriver.chrome.options import Options
 
 
 def getHashtags():
@@ -17,23 +18,29 @@ def getHashtags():
     return(hashtag)
 
 def scrapeHashtags(hashtag):
+    options = Options()
+    options.headless = True
+#    driver = webdriver.Chrome(executable_path=os.path.abspath(“chromedriver"),chrome_options=chrome_options)
     results = []
     for i in hashtag:
-        driver = webdriver.Chrome('chromedriver')  # Optional argument, if not specified will search path.
+        driver = webdriver.Chrome('chromedriver', chrome_options=options)
         driver.get('https://www.instagram.com/explore/tags/' + str(i));
-        time.sleep(3) # Let the user actually see something!
+        time.sleep(0) # Let the user actually see something!
         try:
-           number=driver.find_element_by_xpath('//*[(@class = "-nal3 ")]')
-           print(number.text)
-           result = number.text
-           result = result.replace(',','')
-           result = result.replace(' posts','')
-           results.append([str(i),result])
-           time.sleep(0) # Let the user actually see something!
-           driver.quit()
+            number=driver.find_element_by_xpath('//*[(@class = "-nal3 ")]')
+            print(i + ' - ' number.text)
+            result = number.text
+            result = result.replace(',','')
+            result = result.replace(' posts','')
+            results.append([str(i),result])
+            time.sleep(0) # Let the user actually see something!
+            driver.quit()
         except:
-           driver.quit()
-           pass
+            result = 0
+            print(str(i) + ' hat keine Hashtags')
+            results.append([str(i),result])
+            driver.quit()
+            pass
 
     print(results)
     return(results)
@@ -44,7 +51,7 @@ def importHashtagList(filename):
         csv_reader = list(csv_reader)
         csv_list = list()
         for i in csv_reader:
-            csv_list.append(i[0].replace(' ','').replace('-',''))
+            csv_list.append(i[0].replace(' ','').replace('-','').replace('/','').replace('.',''))
         print(csv_list)
         print(len(csv_list))
         return(list(csv_list))

@@ -8,6 +8,17 @@ import os,sys
 import unicodecsv as csv
 import argparse
 
+def importHashtagList(filename):
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        csv_reader = list(csv_reader)
+        csv_list = list()
+        for i in csv_reader:
+            csv_list.append(i[0].replace(' ','').replace('-','').replace('/','').replace('.',''))
+        print(csv_list)
+        print(len(csv_list))
+        return(list(csv_list))
+
 def parse(locality,checkin_date,checkout_date,sort):
     checkIn = checkin_date.strftime("%Y/%m/%d")
     checkOut = checkout_date.strftime("%Y/%m/%d")
@@ -109,6 +120,15 @@ def parse(locality,checkin_date,checkout_date,sort):
         }
         hotel_data.append(data)
     return hotel_data
+
+def writeTripAdvisor(data,locality):
+    with open('scrapes/tripadvisor_data_' + str(locality) + '_' + str(datetime.now())+'.csv','wb') as csvfile:
+        fieldnames = ['hotel_name','url','locality','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in data:
+            writer.writerow(row)
+        print(str(len(data)) + ' Hotels gespeichert. Jonathan ist der beste.')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
