@@ -12,6 +12,7 @@
     #amount of tweets is not ideal,
     #sort csv to show highest potential influencer first
     #show media url, issue with tweet.entities
+    #filter out RTs
 
 
 
