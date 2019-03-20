@@ -4,6 +4,8 @@ import csv
 from datetime import datetime
 from hashtaghandler import *
 
-hashtags = getHashtags()
-results = scrapeHashtags()
+hashtags = importHashtagList('world-cities_csv.csv')
+
+#hashtags = getHashtags()
+results = scrapeHashtags(hashtags)
 writeHashtags(results)
