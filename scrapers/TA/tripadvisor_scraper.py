@@ -105,7 +105,9 @@ def parse(locality,checkin_date,checkout_date,sort):
         else:
             r_price_night = raw_hotel_price_per_night[pricelen]
         print(r_price_night)
-        price_per_night = ''.join(str(r_price_night)) if r_price_night else None
+        ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
+        print(ra_price_night)
+        price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
         no_of_deals = re.findall("all\s+?(\d+)\s+?",''.join(raw_no_of_deals))
         booking_provider = ''.join(raw_booking_provider).strip() if raw_booking_provider else None
 
