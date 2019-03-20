@@ -18,7 +18,8 @@
 
 import tweepy
 import csv
-import operator
+#import operator
+import sql
 
 # Authentifizierung mit Twitter
 consumer_key = 'abc'
