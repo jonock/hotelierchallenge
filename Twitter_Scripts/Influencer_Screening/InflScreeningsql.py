@@ -31,15 +31,13 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
 
+#Connect to SQLite database
+conn = sqlite3.connect('trackdb.sqlite')
+cur = conn.cursor()
+
 # die Gross- /Kleinschreibung muss nicht berücksichtigt werden
 hashtag = "#hotel OR #resort"
 
-#write CSV File
-filename = "influencer"
-csvFile = open('%s_hotelposts.csv' % filename, 'a')
-csvWriter = csv.writer(csvFile)
-#write CSV Headers
-csvWriter.writerow (["TweetID", "Date", "User", "Followers", "Retweets","Favorites"])
 
 #search for tweets with query = hashtag and a few other parameters, count in items
 for tweet in tweepy.Cursor(api.search, show_user = True, q = hashtag,lang="en", since="2019-03-19").items(2000):
