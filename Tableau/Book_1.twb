@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0213.2333                               -->
+<workbook original-version='18.1' source-build='2019.1.0 (20191.19.0213.2333)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='instahashtags2019-03-20 14:54:11.416889' inline='true' name='federated.1rlwenv08rtqz513lc7m611m1v7o' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='instahashtags2019-03-20 14:54:11.416889' name='textscan.1ixy9q00cne85r1atfv0h1pma9mi'>
+            <connection class='textscan' directory='/Users/jonock/dataviz/insta/hotelierchallenge/scrapers/insta_selenium/scrapes' filename='instahashtags2019-03-20 14:54:11.416889.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1ixy9q00cne85r1atfv0h1pma9mi' name='instahashtags2019-03-20 14:54:11.416889.csv' table='[instahashtags2019-03-20 14:54:11.416889#csv]' type='table'>
+          <columns character-set='UTF-8' header='no' locale='en' separator=','>
+            <column datatype='string' name='F1' ordinal='0' />
+            <column datatype='integer' name='F2' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[instahashtags2019-03-20 14:54:11.416889.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;false&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[instahashtags2019-03-20 14:54:11.416889.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F2</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F2]</local-name>
+            <parent-name>[instahashtags2019-03-20 14:54:11.416889.csv]</parent-name>
+            <remote-alias>F2</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Name_Hashtag' datatype='string' name='[F1]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Hashtags' datatype='integer' name='[F2]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.487179' measure-ordering='alphabetic' measure-percentage='0.512821' show-structure='true' />
+      <date-options start-of-week='monday' />
+    </datasource>
+    <datasource caption='tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115' inline='true' name='federated.1idkk661veq17913uy1280zy68l3' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115' name='textscan.16elkrb1xz4au6165g5aq0wiiu0y'>
+            <connection class='textscan' directory='/Users/jonock/dataviz/insta/hotelierchallenge/scrapers/TA/scrapes' filename='tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.16elkrb1xz4au6165g5aq0wiiu0y' name='tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv' table='[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+            <column datatype='string' name='hotel_name' ordinal='0' />
+            <column datatype='string' name='url' ordinal='1' />
+            <column datatype='string' name='locality' ordinal='2' />
+            <column datatype='integer' name='reviews' ordinal='3' />
+            <column datatype='string' name='tripadvisor_rating' ordinal='4' />
+            <column datatype='date' name='checkIn' ordinal='5' />
+            <column datatype='date' name='checkOut' ordinal='6' />
+            <column datatype='string' name='price_per_night' ordinal='7' />
+            <column datatype='string' name='booking_provider' ordinal='8' />
+            <column datatype='integer' name='no_of_deals' ordinal='9' />
+            <column datatype='string' name='hotel_features' ordinal='10' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hotel_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hotel_name]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>hotel_name</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[url]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>url</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>locality</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[locality]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>locality</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reviews</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[reviews]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>reviews</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tripadvisor_rating</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tripadvisor_rating]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>tripadvisor_rating</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>checkIn</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[checkIn]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>checkIn</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>checkOut</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[checkOut]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>checkOut</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_per_night</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[price_per_night]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>price_per_night</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>booking_provider</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[booking_provider]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>booking_provider</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>no_of_deals</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[no_of_deals]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>no_of_deals</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hotel_features</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hotel_features]</local-name>
+            <parent-name>[tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115.csv]</parent-name>
+            <remote-alias>hotel_features</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Booking Provider' datatype='string' name='[booking_provider]' role='dimension' type='nominal' />
+      <column caption='Check In' datatype='date' name='[checkIn]' role='dimension' type='ordinal' />
+      <column caption='Check Out' datatype='date' name='[checkOut]' role='dimension' type='ordinal' />
+      <column caption='Hotel Features' datatype='string' name='[hotel_features]' role='dimension' type='nominal' />
+      <column caption='Hotel Name' datatype='string' name='[hotel_name]' role='dimension' type='nominal' />
+      <column caption='Locality' datatype='string' name='[locality]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='No Of Deals' datatype='integer' name='[no_of_deals]' role='measure' type='quantitative' />
+      <column caption='Price Per Night' datatype='string' name='[price_per_night]' role='dimension' type='nominal' />
+      <column caption='Reviews' datatype='integer' name='[reviews]' role='measure' type='quantitative' />
+      <column caption='Tripadvisor Rating' datatype='string' name='[tripadvisor_rating]' role='dimension' type='nominal' />
+      <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.592308' measure-ordering='alphabetic' measure-percentage='0.407692' show-structure='true' />
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='instahashtags2019-03-20 14:54:11.416889' name='federated.1rlwenv08rtqz513lc7m611m1v7o' />
+            <datasource caption='tripadvisor_data_Los_Angeles_2019-03-20 15:56:15.956115' name='federated.1idkk661veq17913uy1280zy68l3' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1idkk661veq17913uy1280zy68l3'>
+            <column-instance column='[price_per_night]' derivation='None' name='[none:price_per_night:nk]' pivot='key' type='nominal' />
+            <column caption='Price Per Night' datatype='string' name='[price_per_night]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1idkk661veq17913uy1280zy68l3].[none:price_per_night:nk]</rows>
+        <cols>[federated.1idkk661veq17913uy1280zy68l3].[none:price_per_night:nk]</cols>
+      </table>
+      <simple-id uuid='{96A4E4BE-CE6B-4C7D-B23A-A4624DACCA31}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='51'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1idkk661veq17913uy1280zy68l3].[none:price_per_night:nk]</field>
+            <field>[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:F1:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6C7FA398-01EE-4FA6-B5FB-A4C8D7FFE25C}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='128' name='Sheet 1' width='288'>
+      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
+      NJRjx45x6dIldu3aZQx1GhISEmJsh4eH17ma1FIOh6NJYXs9a2guXYYXaaG7777b2F6yZEm9
+      eRO3220sA6l9Sf7XX39l9+7d9c5XWVmJy+VizZo116VeM2rYunUrCxYsYMGCBaSkpBj71QMS
+      aaGZM2eSlpbGpUuXyMnJ4emnn2bixImUlJTg9XpJS0vjzjvvJCkpiYEDBzJ8+HBjTdmsWbOY
+      OHEiAwcOBKqvOv3www/k5+cTFRXFtGnTfF6vGTXs37+fr776CqheJjJ58mRAASTSYl27dmXO
+      nDm89957lJeX43a72bhxY502paWlxvasWbM4evQoFy5cwOv14nK5rvpRIr72v1ADaAgmbUTN
+      YtHLt5vzXLvdXme5RnNMnDiR1atXM3DgQPz8/LDb7caHgDmdTkaPHm207d27N5s2bWLcuHHG
+      nE3tJRNOp5Nnn32W119/vcm1OxyOZk0ON7eG2neDX8tHkTT2HIvX6/U2+2wi0qji4mJOnz5N
+      eXk5drudkJCQRi/tV1VVGXcWX7x4kR49ejQ7QFvKzBoUQCJiGg3BRMQ0CiARMY0CSERMowAS
+      EdMogETENAogETGNAkhETKMAEhHTKIBExDQKIBExjQJIREyjABIR0yiARMQ0CiARMY0CSERM
+      owASEdMogETENAogETGNAkhETKM/yyMi10VmZia7du0iIiKCUaNGNdhGASQi10ViYiIHDx7E
+      arU2GkAagomIT7jdbqZPn862bdsA6NSpk/G9oqKCpKSken/rTD0gEfGJ5ORkDh8+zOHDh0lL
+      S6OkpASAU6dOMW3aNP78808Adu7cafSIFEAi4hMDBgwgODiYvLw8du7caezfsmWLsR0eHk73
+      7t2Nx/rDhCLiMxUVFaSkpBAXF1fvWHx8PCNGjKizT3NAIuITZWVlpKamkpyc3ODxhIQEMjIy
+      6uxTD0hEfOLtt9/G5XIBYLVaqaysbLDdvHnzeOyxxwD1gETERyZNmgRAWFgYa9asYezYsQDE
+      xsayaNEinE4ngYGBjB492niOJqFFxCeGDBlCQkICgwcPxt/fn8LCQgAKCwuZOnUq99xzDydP
+      nsTpdBrPUQCJiM9ERkYa2zVXu4qKigBwOBz079+/TnvNAYnIdeH1eikvL8dqtWK1WhtsowAS
+      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
+      AAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

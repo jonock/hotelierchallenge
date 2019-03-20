@@ -95,9 +95,10 @@ def parse(locality,checkin_date,checkout_date,sort):
         rank = ''.join(raw_rank) if raw_rank else None
         rating = ''.join(raw_rating).replace('of 5 bubbles','').strip() if raw_rating else None
         name = ''.join(raw_hotel_name).strip() if raw_hotel_name else None
+        timestamp = str(datetime.now());
         hotel_features = ','.join(raw_hotel_features)
         pricelen = (len(raw_hotel_price_per_night)) - 1
-        print(pricelen)
+#        print(pricelen)
         if pricelen < 0:
             r_price_night = 0;
             print('LENGTHBUG')
@@ -117,6 +118,7 @@ def parse(locality,checkin_date,checkout_date,sort):
                     'hotel_name':name,
                     'url':url,
                     'locality':locality,
+                    'timestamp':timestamp,
                     'reviews':reviews,
                     'tripadvisor_rating':rating,
                     'checkOut':checkOut,
@@ -131,7 +133,7 @@ def parse(locality,checkin_date,checkout_date,sort):
 
 def writeTripAdvisor(data,locality):
     with open('scrapes/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
-        fieldnames = ['hotel_name','url','locality','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
+        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:

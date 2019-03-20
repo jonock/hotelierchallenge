@@ -1,5 +1,7 @@
 import tripadvisor_scraper
 from datetime import datetime
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 localities = tripadvisor_scraper.importHashtagList('us-cities.txt')
