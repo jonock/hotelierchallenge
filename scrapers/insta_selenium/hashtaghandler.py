@@ -32,8 +32,8 @@ def scrapeHashtags(hashtag):
            time.sleep(0) # Let the user actually see something!
            driver.quit()
         except:
-           pass
            driver.quit()
+           pass
 
     print(results)
     return(results)
