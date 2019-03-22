@@ -23,6 +23,7 @@ def importHashtagList(filename):
         print(len(csv_list))
         return(list(csv_list))
 
+#locality etc. are parameters of the function
 def parse(locality,checkin_date,checkout_date,sort):
     checkin_date = datetime.strptime(checkin_date,"%Y/%m/%d")
     checkout_date = datetime.strptime(checkout_date,"%Y/%m/%d")
@@ -145,6 +146,7 @@ def writeTripAdvisor(data,locality):
             writer.writerow(row)
         print(str(len(data)) + ' Hotels für ' + locality + ' gespeichert.')
 
+#
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('checkin_date',help = 'Hotel Check In Date (Format: YYYY/MM/DD')
