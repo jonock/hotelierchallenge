@@ -12,5 +12,7 @@ sort = 'recommended'
 
 for locality in localities:
     print(locality + ' kommt nun')
-    data = tripadvisor_scraper.parse(locality,checkin_date,checkout_date,sort)
+    for _ in range(3):
+        data = tripadvisor_scraper.parse(locality,checkin_date,checkout_date,sort)
+    #data = tripadvisor_scraper.parse(locality,checkin_date,checkout_date,sort)
     tripadvisor_scraper.writeTripAdvisor(data, locality)
