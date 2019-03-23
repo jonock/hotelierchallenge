@@ -27,8 +27,8 @@ def scrapeHashtags(hashtag):
         driver.get('https://www.instagram.com/explore/tags/' + str(i));
         time.sleep(0) # Let the user actually see something!
         try:
-            number=driver.find_element_by_xpath('//*[(@class = "-nal3 ")]')
-            print(i + ' - ' number.text)
+            number = driver.find_element_by_xpath('//*[(@class = "-nal3 ")]')
+            print(i + str(" ") + number.text)
             result = number.text
             result = result.replace(',','')
             result = result.replace(' posts','')
