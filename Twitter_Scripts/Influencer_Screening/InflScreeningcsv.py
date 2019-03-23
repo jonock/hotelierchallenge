@@ -43,7 +43,7 @@ yesterdaysdate = yesterday.strftime("%Y-%m-%d")
 
 #write CSV File
 filename = todaysdate
-csvFile = open('%s_influencer_hotelposts.csv' % filename, 'a')
+csvFile = open('Exports/%s_influencer_hotelposts.csv' % filename, 'a')
 csvWriter = csv.writer(csvFile)
 #write CSV Headers
 csvWriter.writerow (["TweetID", "Date", "User", "Followers", "Retweets","Favorites"])

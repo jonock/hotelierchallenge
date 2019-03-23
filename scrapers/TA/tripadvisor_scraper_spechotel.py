@@ -32,12 +32,12 @@ def parse(locality,checkin_date,checkout_date,sort):
     print("Scraper Inititated for Locality: %s"%locality)
     # TA rendering the autocomplete list using this API
     print("Finding search result page URL")
-    #geo_url = 'https://www.tripadvisor.com/TypeAheadJson?action=API&startTime='+str(int(time()))+'&uiOrigin=GEOSCOPE&source=GEOSCOPE&interleaved=true&types=geo,theme_park&neighborhood_geos=true&link_type=hotel&details=true&max=12&injectNeighborhoods=true&query='+locality
-    #api_response  = requests.get(geo_url, verify=False).json()
+    geo_url = 'https://www.tripadvisor.com/TypeAheadJson?action=API&startTime='+str(int(time()))+'&uiOrigin=GEOSCOPE&source=GEOSCOPE&interleaved=true&types=geo,theme_park&neighborhood_geos=true&link_type=hotel&details=true&max=12&injectNeighborhoods=true&query='+locality
+    api_response  = requests.get(geo_url, verify=False).json()
     #print(api_response)
     #getting the TA url for th equery from the autocomplete response
     #url_from_autocomplete = "http://www.tripadvisor.com"+api_response['results'][0]['url']
-    url_from_autocomplete = "https://www.tripadvisor.ch/Hotel_Review-g188113-d233017-Reviews-Hotel_Schweizerhof_Zurich-Zurich.html"
+    url_from_autocomplete = ""
     print('URL found %s'%url_from_autocomplete)    #Formating date for writing to file
 
     date = checkin_date.strftime("%Y_%m_%d")+"_"+checkout_date.strftime("%Y_%m_%d")
