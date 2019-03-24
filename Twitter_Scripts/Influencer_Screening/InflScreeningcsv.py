@@ -49,7 +49,7 @@ csvWriter = csv.writer(csvFile)
 csvWriter.writerow (["TweetID", "Date", "User", "Followers", "Retweets","Favorites"])
 
 #search for tweets with query = hashtag and a few other parameters, count in items
-for tweet in tweepy.Cursor(api.search, show_user = True, q = hashtag,lang="en", since=yesterdaysdate).items(3000):
+for tweet in tweepy.Cursor(api.search, show_user = True, q = hashtag,lang="en", since=yesterdaysdate).items(2000):
     #read metadata of tweets from JSON
     tweetinfo = (tweet.id_str,
                  tweet.created_at,
