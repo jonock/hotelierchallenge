@@ -16,3 +16,11 @@ for locality in localities:
     for _ in range(3):   #beim ersten scrapen nimmts die Preise nicht immer, deshalb der Loop hier.
         data = tripadvisor_scraper.parse(locality,checkin_date,checkout_date,sort)
     tripadvisor_scraper.writeTripAdvisor(data, locality)
+
+
+
+
+#Notiz Hotel Meloneras
+#Post 27.3 17:30
+#First Scrape 27.3 18:30
+#TR
