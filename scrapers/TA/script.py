@@ -18,7 +18,8 @@ for locality in localities:
     tripadvisor_scraper.writeTripAdvisor(data, locality)
 
 
-
+#Achtung: um den Überblick über die Meloneras price scrapes csv zu behalten werden sie in einen Unterordner in scrapes gespeichert
+#dieser ist in der def writeTripAdvisor modifiziert. 
 
 #Notiz Hotel Meloneras
 #Post 27.3 17:30
