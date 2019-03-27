@@ -19,9 +19,9 @@ for locality in localities:
 
 
 #Achtung: um den Überblick über die Meloneras price scrapes csv zu behalten werden sie in einen Unterordner in scrapes gespeichert
-#dieser ist in der def writeTripAdvisor modifiziert. 
+#dieser ist in der def writeTripAdvisor modifiziert.
 
 #Notiz Hotel Meloneras
 #Post 27.3 17:30
-#First Scrape 27.3 18:30
+#First Scrape 27.3 18:30  (rough frequency: 30min)
 #TR
