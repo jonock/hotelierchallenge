@@ -65,40 +65,42 @@ def singleparse(full_url,checkin_date,checkout_date,sort):
     parser = html.fromstring(page_response.text)
 #    print(page_response.text)
     print(parser)
-    hotel_lists = parser.xpath('//div[contains(@class,"listItem")]//div[contains(@class,"listing collapsed")]')
+    hotel_lists = parser.xpath('//div[contains(@class,"data-perNight")]')
     hotel_data = []
-    if not hotel_lists:
-        hotel_lists = parser.xpath('//div[contains(@class,"listItem")]//div[@class="listing "]')
 
-    for hotel in hotel_lists:
-        XPATH_PLATFORM_NAME = './/a[contains(@class,"vendor")]//text()'
-        XPATH_HOTEL_PRICE = './/span[contains(@class,"price")]/text()'
+    XPATH_PLATFORM_NAME = './/a[contains(@class,"vendor")]//text()'
+    XPATH_HOTEL_PRICE = './/span[contains(@class,"price")]/text()'
 
-        raw_platform_name = hotel.xpath(XPATH_PLATFORM_NAME)
-        raw_hotel_price_per_night =  hotel.xpath(XPATH_HOTEL_PRICE)
-        print(raw_platform_name)
-        print(raw_hotel_price_per_night)
+    raw_platform_name = 'test'
+    #hotel_lists.xpath(XPATH_PLATFORM_NAME)
+    print(hotel_lists)
+    for i in hotel_lists:
+        print(str(i.text)+'HIER')
+    raw_hotel_price_per_night =  '12'
+    #hotel_lists.xpath(XPATH_HOTEL_PRICE)
+    print(raw_platform_name)
+    print(raw_hotel_price_per_night)
 
-        name = ''.join(raw_platform_name).strip() if raw_platform_name else None
-        timestamp = str(datetime.now());
-        pricelen = (len(raw_hotel_price_per_night)) - 1
+    name = ''.join(raw_platform_name).strip() if raw_platform_name else None
+    timestamp = str(datetime.now());
+    pricelen = (len(raw_hotel_price_per_night)) - 1
 #        print(pricelen)
-        if pricelen < 0:
-            r_price_night = 0;
-            print('LENGTHBUG')
-        else:
-            r_price_night = raw_hotel_price_per_night[pricelen]
-        print(r_price_night)
-        ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
-        print(ra_price_night)
-        price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
+    if pricelen < 0:
+        r_price_night = 0;
+        print('LENGTHBUG')
+    else:
+        r_price_night = raw_hotel_price_per_night[pricelen]
+    print(r_price_night)
+    ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
+    print(ra_price_night)
+    price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
 
 
-        data = {
-                    'platform_name':name,
-                    'price_per_night':price_per_night,
-        }
-        hotel_data.append(data)
+    data = {
+                'platform_name':name,
+                'price_per_night':price_per_night,
+    }
+    hotel_data.append(data)
     return hotel_data
 
 def writeTripAdvisor(data,locality):

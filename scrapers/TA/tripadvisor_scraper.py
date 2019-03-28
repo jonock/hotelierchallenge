@@ -5,7 +5,7 @@ from time import time
 from lxml import html,etree
 import requests,re
 import os,sys
-import unicodecsv as csv
+import unicodecsv as ucsv
 import csv as ccsv
 import argparse
 
@@ -121,6 +121,16 @@ def parse(locality,checkin_date,checkout_date,sort):
         }
         hotel_data.append(data)
     return hotel_data
+
+def writeTripAdvisor(data,name):
+    with open('scrapes/singlehotel/tripadvisor_data' + str(name) + '.csv','wb') as csvfile:
+        fieldnames = ['provider_name','price']
+        writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in data:
+            writer.writerow(row)
+        print(' gespeichert.')
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
