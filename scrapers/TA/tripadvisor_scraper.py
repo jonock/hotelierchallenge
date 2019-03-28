@@ -6,7 +6,19 @@ from lxml import html,etree
 import requests,re
 import os,sys
 import unicodecsv as csv
+import csv as ccsv
 import argparse
+
+def importHashtagList(filename):
+    with open(filename) as csv_file:
+        csv_reader = ccsv.reader(csv_file, delimiter=',')
+        csv_reader = list(csv_reader)
+        csv_list = list()
+        for i in csv_reader:
+            csv_list.append(i[0])
+        print(csv_list)
+        print(len(csv_list))
+        return(list(csv_list))
 
 def parse(locality,checkin_date,checkout_date,sort):
     checkIn = checkin_date.strftime("%Y/%m/%d")
