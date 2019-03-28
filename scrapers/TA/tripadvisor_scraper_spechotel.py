@@ -23,6 +23,7 @@ def importHashtagList(filename):
         print(len(csv_list))
         return(list(csv_list))
 
+
 #locality etc. are parameters of the function
 def singleparse(full_url,checkin_date,checkout_date,sort):
     checkin_date = datetime.strptime(checkin_date,"%Y/%m/%d")
@@ -64,53 +65,52 @@ def singleparse(full_url,checkin_date,checkout_date,sort):
     print("Parsing results ")
     parser = html.fromstring(page_response.text)
 #    print(page_response.text)
-    print(parser)
-    hotel_lists = parser.xpath('//div[contains(@class,"data-perNight")]')
-    hotel_data = []
+#    print(parser)
+    hotel_lists = parser.xpath('//*')
 
-    XPATH_PLATFORM_NAME = './/a[contains(@class,"vendor")]//text()'
+    XPATH_PLATFORM_NAME = './/div[contains(@class,"vendor")]//text()'
     XPATH_HOTEL_PRICE = './/span[contains(@class,"price")]/text()'
 
-    raw_platform_name = 'test'
-    #hotel_lists.xpath(XPATH_PLATFORM_NAME)
-    print(hotel_lists)
+#    raw_platform_name = hotel_lists.xpath(XPATH_PLATFORM_NAME)
+    print(hotel_lists[5])
+    hotel_data = []
     for i in hotel_lists:
-        print(str(i.text)+'HIER')
-    raw_hotel_price_per_night =  '12'
-    #hotel_lists.xpath(XPATH_HOTEL_PRICE)
-    print(raw_platform_name)
-    print(raw_hotel_price_per_night)
+        print(str(i.text)+' HIER')
+        raw_hotel_price_per_night = i.xpath(XPATH_HOTEL_PRICE)
+        raw_platform_name = i.xpath(XPATH_PLATFORM_NAME)
+#        print(raw_platform_name)
+#        print(raw_hotel_price_per_night)
 
-    name = ''.join(raw_platform_name).strip() if raw_platform_name else None
-    timestamp = str(datetime.now());
-    pricelen = (len(raw_hotel_price_per_night)) - 1
+        name = ''.join(raw_platform_name).strip() if raw_platform_name else None
+#    timestamp = str(datetime.now())
+        pricelen = (len(raw_hotel_price_per_night)) - 1
 #        print(pricelen)
-    if pricelen < 0:
-        r_price_night = 0;
-        print('LENGTHBUG')
-    else:
-        r_price_night = raw_hotel_price_per_night[pricelen]
-    print(r_price_night)
-    ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
-    print(ra_price_night)
-    price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
+        if pricelen < 0:
+            r_price_night = 0;
+            print('LENGTHBUG')
+        else:
+            r_price_night = raw_hotel_price_per_night[pricelen]
+        print(r_price_night)
+        ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
+        print(ra_price_night)
+        price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
 
-
-    data = {
-                'platform_name':name,
-                'price_per_night':price_per_night,
-    }
-    hotel_data.append(data)
+        data = {
+                    'platform_name':name,
+                    'price_per_night':price_per_night,
+        }
+        print(data)
+        hotel_data.append(data)
     return hotel_data
 
-def writeTripAdvisor(data,locality):
-    with open('scrapes/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
-        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
+def writeTripAdvisor(data,namestr):
+    with open('scrapes/spechotel/tripadvisor_data_' + str(namestr).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
+        fieldnames = ['platform_name','price_per_night']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
             writer.writerow(row)
-        print(str(len(data)) + ' Hotels für ' + locality + ' gespeichert.')
+        print(str(len(data)) + ' gespeichert.')
 
 #
 if __name__ == '__main__':
