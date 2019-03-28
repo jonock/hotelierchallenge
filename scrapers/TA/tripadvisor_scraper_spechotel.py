@@ -23,19 +23,16 @@ def importHashtagList(filename):
         print(len(csv_list))
         return(list(csv_list))
 
+
 #locality etc. are parameters of the function
-def parse(locality,checkin_date,checkout_date,sort):
+def singleparse(full_url,checkin_date,checkout_date,sort):
     checkin_date = datetime.strptime(checkin_date,"%Y/%m/%d")
     checkout_date = datetime.strptime(checkout_date,"%Y/%m/%d")
     checkIn = checkin_date.strftime("%Y/%m/%d")
     checkOut = checkout_date.strftime("%Y/%m/%d")
-    print("Scraper Inititated for Locality: %s"%locality)
+    print("Scraper Inititated for Locality: %s"%full_url)
     # TA rendering the autocomplete list using this API
     print("Finding search result page URL")
-    geo_url = 'https://www.tripadvisor.com/TypeAheadJson?action=API&startTime='+str(int(time()))+'&uiOrigin=GEOSCOPE&source=GEOSCOPE&interleaved=true&types=geo,theme_park&neighborhood_geos=true&link_type=hotel&details=true&max=12&injectNeighborhoods=true&query='+locality
-    api_response  = requests.get(geo_url, verify=False).json()
-    #print(api_response)
-    #getting the TA url for th equery from the autocomplete response
     #url_from_autocomplete = "http://www.tripadvisor.com"+api_response['results'][0]['url']
     url_from_autocomplete = ""
     print('URL found %s'%url_from_autocomplete)    #Formating date for writing to file
@@ -64,42 +61,28 @@ def parse(locality,checkin_date,checkout_date,sort):
                         }
     cookies=  {"SetCurrency":"CHF"}
     print("Downloading search results page")
-    page_response  = requests.post(url = url_from_autocomplete,data=form_data,headers = headers, cookies = cookies, verify=False)
+    page_response  = requests.post(url = full_url, data=form_data,headers = headers, cookies = cookies, verify=False)
     print("Parsing results ")
     parser = html.fromstring(page_response.text)
-    hotel_lists = parser.xpath('//div[contains(@class,"listItem")]//div[contains(@class,"listing collapsed")]')
+#    print(page_response.text)
+#    print(parser)
+    hotel_lists = parser.xpath('//*')
+
+    XPATH_PLATFORM_NAME = './/div[contains(@class,"vendor")]//text()'
+    XPATH_HOTEL_PRICE = './/span[contains(@class,"price")]/text()'
+
+#    raw_platform_name = hotel_lists.xpath(XPATH_PLATFORM_NAME)
+    print(hotel_lists[5])
     hotel_data = []
-    if not hotel_lists:
-        hotel_lists = parser.xpath('//div[contains(@class,"listItem")]//div[@class="listing "]')
+    for i in hotel_lists:
+        print(str(i.text)+' HIER')
+        raw_hotel_price_per_night = i.xpath(XPATH_HOTEL_PRICE)
+        raw_platform_name = i.xpath(XPATH_PLATFORM_NAME)
+#        print(raw_platform_name)
+#        print(raw_hotel_price_per_night)
 
-    for hotel in hotel_lists:
-        XPATH_HOTEL_LINK = './/a[contains(@class,"property_title")]/@href'
-        XPATH_REVIEWS  = './/a[@class="review_count"]//text()'
-        XPATH_RANK = './/div[@class="popRanking"]//text()'
-        XPATH_RATING = './/span[contains(@class,"rating")]/@alt'
-        XPATH_HOTEL_NAME = './/a[contains(@class,"property_title")]//text()'
-        XPATH_HOTEL_FEATURES = './/div[contains(@class,"common_hotel_icons_list")]//li//text()'
-        XPATH_HOTEL_PRICE = './/div[contains(@data-sizegroup,"mini-meta-price")]/text()'
-        XPATH_VIEW_DEALS = './/div[contains(@data-ajax-preserve,"viewDeals")]//text()'
-        XPATH_BOOKING_PROVIDER = './/div[contains(@data-sizegroup,"mini-meta-provider")]//text()'
-
-        raw_booking_provider = hotel.xpath(XPATH_BOOKING_PROVIDER)
-        raw_no_of_deals =  hotel.xpath(XPATH_VIEW_DEALS)
-        raw_hotel_link = hotel.xpath(XPATH_HOTEL_LINK)
-        raw_no_of_reviews = hotel.xpath(XPATH_REVIEWS)
-        raw_rank = hotel.xpath(XPATH_RANK)
-        raw_rating = hotel.xpath(XPATH_RATING)
-        raw_hotel_name = hotel.xpath(XPATH_HOTEL_NAME)
-        raw_hotel_features = hotel.xpath(XPATH_HOTEL_FEATURES)
-        raw_hotel_price_per_night  = hotel.xpath(XPATH_HOTEL_PRICE)
-
-        url = 'http://www.tripadvisor.com'+raw_hotel_link[0] if raw_hotel_link else  None
-        reviews = ''.join(raw_no_of_reviews).replace("reviews","").replace(",","") if raw_no_of_reviews else 0
-        rank = ''.join(raw_rank) if raw_rank else None
-        rating = ''.join(raw_rating).replace('of 5 bubbles','').strip() if raw_rating else None
-        name = ''.join(raw_hotel_name).strip() if raw_hotel_name else None
-        timestamp = str(datetime.now());
-        hotel_features = ','.join(raw_hotel_features)
+        name = ''.join(raw_platform_name).strip() if raw_platform_name else None
+#    timestamp = str(datetime.now())
         pricelen = (len(raw_hotel_price_per_night)) - 1
 #        print(pricelen)
         if pricelen < 0:
@@ -111,39 +94,23 @@ def parse(locality,checkin_date,checkout_date,sort):
         ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
         print(ra_price_night)
         price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
-        no_of_deals = re.findall("all\s+?(\d+)\s+?",''.join(raw_no_of_deals))
-        booking_provider = ''.join(raw_booking_provider).strip() if raw_booking_provider else None
-
-        if no_of_deals:
-            no_of_deals = no_of_deals[0]
-        else:
-            no_of_deals = 0
 
         data = {
-                    'hotel_name':name,
-                    'url':url,
-                    'locality':locality,
-                    'timestamp':timestamp,
-                    'reviews':reviews,
-                    'tripadvisor_rating':rating,
-                    'checkOut':checkOut,
-                    'checkIn':checkIn,
-                    'hotel_features':hotel_features,
+                    'platform_name':name,
                     'price_per_night':price_per_night,
-                    'no_of_deals':no_of_deals,
-                    'booking_provider':booking_provider
         }
+        print(data)
         hotel_data.append(data)
     return hotel_data
 
-def writeTripAdvisor(data,locality):
-    with open('scrapes/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
-        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
+def writeTripAdvisor(data,namestr):
+    with open('scrapes/spechotel/tripadvisor_data_' + str(namestr).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
+        fieldnames = ['platform_name','price_per_night']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
             writer.writerow(row)
-        print(str(len(data)) + ' Hotels für ' + locality + ' gespeichert.')
+        print(str(len(data)) + ' gespeichert.')
 
 #
 if __name__ == '__main__':
