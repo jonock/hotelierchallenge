@@ -8,6 +8,18 @@ import os,sys
 import unicodecsv as ucsv
 import csv as ccsv
 import argparse
+import csv as ccsv
+
+def importHashtagList(filename):
+    with open(filename) as csv_file:
+        csv_reader = ccsv.reader(csv_file, delimiter=',')
+        csv_reader = list(csv_reader)
+        csv_list = list()
+        for i in csv_reader:
+            csv_list.append(i[0])
+        print(csv_list)
+        print(len(csv_list))
+        return(list(csv_list))
 
 def importHashtagList(filename):
     with open(filename) as csv_file:
@@ -21,6 +33,8 @@ def importHashtagList(filename):
         return(list(csv_list))
 
 def parse(locality,checkin_date,checkout_date,sort):
+    checkin_date = datetime.strptime(checkin_date,"%Y/%m/%d")
+    checkout_date = datetime.strptime(checkout_date,"%Y/%m/%d")
     checkIn = checkin_date.strftime("%Y/%m/%d")
     checkOut = checkout_date.strftime("%Y/%m/%d")
     print("Scraper Inititated for Locality: %s"%locality)
@@ -28,7 +42,7 @@ def parse(locality,checkin_date,checkout_date,sort):
     print("Finding search result page URL")
     geo_url = 'https://www.tripadvisor.com/TypeAheadJson?action=API&startTime='+str(int(time()))+'&uiOrigin=GEOSCOPE&source=GEOSCOPE&interleaved=true&types=geo,theme_park&neighborhood_geos=true&link_type=hotel&details=true&max=12&injectNeighborhoods=true&query='+locality
     api_response  = requests.get(geo_url, verify=False).json()
-    print(api_response)
+    #print(api_response)
     #getting the TA url for th equery from the autocomplete response
     url_from_autocomplete = "http://www.tripadvisor.com"+api_response['results'][0]['url']
     print('URL found %s'%url_from_autocomplete)
@@ -93,10 +107,19 @@ def parse(locality,checkin_date,checkout_date,sort):
         rank = ''.join(raw_rank) if raw_rank else None
         rating = ''.join(raw_rating).replace('of 5 bubbles','').strip() if raw_rating else None
         name = ''.join(raw_hotel_name).strip() if raw_hotel_name else None
+        timestamp = str(datetime.now());
         hotel_features = ','.join(raw_hotel_features)
         pricelen = (len(raw_hotel_price_per_night)) - 1
-        r_price_night = raw_hotel_price_per_night[pricelen].encode('utf-8')
-        price_per_night = ''.join(raw_hotel_price_per_night) if raw_hotel_price_per_night else None
+#        print(pricelen)
+        if pricelen < 0:
+            r_price_night = 0;
+            print('LENGTHBUG')
+        else:
+            r_price_night = raw_hotel_price_per_night[pricelen]
+        print(r_price_night)
+        ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
+        print(ra_price_night)
+        price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
         no_of_deals = re.findall("all\s+?(\d+)\s+?",''.join(raw_no_of_deals))
         booking_provider = ''.join(raw_booking_provider).strip() if raw_booking_provider else None
 
@@ -109,6 +132,7 @@ def parse(locality,checkin_date,checkout_date,sort):
                     'hotel_name':name,
                     'url':url,
                     'locality':locality,
+                    'timestamp':timestamp,
                     'reviews':reviews,
                     'tripadvisor_rating':rating,
                     'checkOut':checkOut,
@@ -117,20 +141,18 @@ def parse(locality,checkin_date,checkout_date,sort):
                     'price_per_night':price_per_night,
                     'no_of_deals':no_of_deals,
                     'booking_provider':booking_provider
-
         }
         hotel_data.append(data)
     return hotel_data
 
-def writeTripAdvisor(data,name):
-    with open('scrapes/singlehotel/tripadvisor_data' + str(name) + '.csv','wb') as csvfile:
-        fieldnames = ['provider_name','price']
+def writeTripAdvisor(data,locality):
+    with open('scrapes/Meloneras/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
+        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
             writer.writerow(row)
-        print(' gespeichert.')
-
+        print(str(len(data)) + ' Hotels für ' + locality + ' gespeichert.')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -157,13 +179,13 @@ if __name__ == '__main__':
     if today<datetime.strptime(checkIn,"%Y/%m/%d") and datetime.strptime(checkIn,"%Y/%m/%d")<datetime.strptime(checkOut,"%Y/%m/%d"):
         data = parse(locality,checkin_date,checkout_date,sort)
         print("Writing to output file tripadvisor_data.csv")
-        with open('tripadvisor_data.csv','wb') as csvfile:
+        with open('scrapes/tripadvisor_data_' + str(locality) + '_' + str(datetime.now())+'.csv','wb') as csvfile:
             fieldnames = ['hotel_name','url','locality','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for row in data:
                 writer.writerow(row)
-            print(len(data) + 'Hotels gespeichert. Jonathan ist der beste.')
+            print(str(len(data)) + ' Hotels für ' + locality +' gespeichert.')
     #checking whether the entered date is already passed
     elif today>datetime.strptime(checkIn,"%Y/%m/%d") or today>datetime.strptime(checkOut,"%Y/%m/%d"):
         print("Invalid Checkin date: Please enter a valid checkin and checkout dates,entered date is already passed")

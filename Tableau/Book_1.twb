@@ -1,0 +1,2003 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0213.2333                               -->
+<workbook original-version='18.1' source-build='2019.1.0 (20191.19.0213.2333)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='tripadvisor_data_Akron_2019-03-20 16:52:59.520039' inline='true' name='federated.12y65wg0uc7sfi1668ph805vc33t' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tripadvisor_data_Akron_2019-03-20 16:52:59.520039' name='textscan.02tuv7217wq61g11ggmrf0b3p8xs'>
+            <connection class='textscan' directory='/Users/jonock/dataviz/insta/hotelierchallenge/scrapers/TA/scrapes' filename='tripadvisor_data_Akron_2019-03-20 16:52:59.520039.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.567949' measure-ordering='alphabetic' measure-percentage='0.432051' show-structure='true' />
+      <date-options start-of-week='monday' />
+    </datasource>
+    <datasource caption='instahashtags2019-03-20 14:54:11.416889' inline='true' name='federated.1rlwenv08rtqz513lc7m611m1v7o' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='instahashtags2019-03-20 14:54:11.416889' name='textscan.1ixy9q00cne85r1atfv0h1pma9mi'>
+            <connection class='textscan' directory='/Users/jonock/dataviz/insta/hotelierchallenge/scrapers/insta_selenium/scrapes' filename='instahashtags2019-03-20 14:54:11.416889.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='tripadvisor_data_Akron_2019-03-20 17:26:47.007602' name='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8'>
+            <connection class='textscan' directory='/Users/jonock/dataviz/insta/hotelierchallenge/scrapers/TA/scrapes' filename='tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='right' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[instahashtags2019-03-20 14:54:11.416889.csv].[F1]' />
+              <expression op='[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+].[locality]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1ixy9q00cne85r1atfv0h1pma9mi' name='instahashtags2019-03-20 14:54:11.416889.csv' table='[instahashtags2019-03-20 14:54:11.416889#csv]' type='table'>
+            <columns character-set='UTF-8' header='no' locale='en' separator=','>
+              <column datatype='string' name='F1' ordinal='0' />
+              <column datatype='integer' name='F2' ordinal='1' />
+            </columns>
+          </relation>
+          <relation all='true' name='tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+' type='union'>
+            <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+              <column datatype='string' name='hotel_name' />
+              <column datatype='string' name='url' />
+              <column datatype='string' name='locality' />
+              <column datatype='string' name='timestamp' />
+              <column datatype='string' name='reviews' />
+              <column datatype='string' name='tripadvisor_rating' />
+              <column datatype='string' name='checkIn' />
+              <column datatype='string' name='checkOut' />
+              <column datatype='real' name='price_per_night' />
+              <column datatype='string' name='booking_provider' />
+              <column datatype='string' name='no_of_deals' />
+              <column datatype='string' name='hotel_features' />
+              <column datatype='string' name='Table Name' />
+            </columns>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv' table='[tripadvisor_data_Akron_2019-03-20 17:26:47.007602#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Albuquerque_2019-03-20 17:24:34.427470.csv' table='[tripadvisor_data_Albuquerque_2019-03-20 17:24:34.427470#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Anaheim_2019-03-20 17:25:20.090232.csv' table='[tripadvisor_data_Anaheim_2019-03-20 17:25:20.090232#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Anchorage_2019-03-20 17:25:41.936844.csv' table='[tripadvisor_data_Anchorage_2019-03-20 17:25:41.936844#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Arlington_2019-03-20 17:25:09.514267.csv' table='[tripadvisor_data_Arlington_2019-03-20 17:25:09.514267#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Arlington_2019-03-20 17:27:00.654628.csv' table='[tripadvisor_data_Arlington_2019-03-20 17:27:00.654628#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Atlanta_2019-03-20 17:24:37.009775.csv' table='[tripadvisor_data_Atlanta_2019-03-20 17:24:37.009775#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Aurora_2019-03-20 17:25:30.031014.csv' table='[tripadvisor_data_Aurora_2019-03-20 17:25:30.031014#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Austin_2019-03-20 17:24:00.180517.csv' table='[tripadvisor_data_Austin_2019-03-20 17:24:00.180517#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Bakersfield_2019-03-20 17:25:27.859848.csv' table='[tripadvisor_data_Bakersfield_2019-03-20 17:25:27.859848#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Baltimore_2019-03-20 17:24:05.917988.csv' table='[tripadvisor_data_Baltimore_2019-03-20 17:24:05.917988#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Baton_Rouge_2019-03-20 17:26:19.431614.csv' table='[tripadvisor_data_Baton_Rouge_2019-03-20 17:26:19.431614#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Birmingham_2019-03-20 17:26:21.844481.csv' table='[tripadvisor_data_Birmingham_2019-03-20 17:26:21.844481#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Boston_2019-03-20 17:24:12.923467.csv' table='[tripadvisor_data_Boston_2019-03-20 17:24:12.923467#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Buffalo_2019-03-20 17:25:44.433934.csv' table='[tripadvisor_data_Buffalo_2019-03-20 17:25:44.433934#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Chandler_2019-03-20 17:26:13.393449.csv' table='[tripadvisor_data_Chandler_2019-03-20 17:26:13.393449#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Charlotte_2019-03-20 17:24:07.586907.csv' table='[tripadvisor_data_Charlotte_2019-03-20 17:24:07.586907#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Chesapeake_2019-03-20 17:26:30.527361.csv' table='[tripadvisor_data_Chesapeake_2019-03-20 17:26:30.527361#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Chicago_2019-03-20 17:23:32.628906.csv' table='[tripadvisor_data_Chicago_2019-03-20 17:23:32.628906#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Chula_Vista_2019-03-20 17:26:40.930288.csv' table='[tripadvisor_data_Chula_Vista_2019-03-20 17:26:40.930288#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='real' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Cincinnati_2019-03-20 17:25:24.189320.csv' table='[tripadvisor_data_Cincinnati_2019-03-20 17:25:24.189320#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Cleveland_2019-03-20 17:24:50.213299.csv' table='[tripadvisor_data_Cleveland_2019-03-20 17:24:50.213299#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Colorado_Springs_2019-03-20 17:25:07.705696.csv' table='[tripadvisor_data_Colorado_Springs_2019-03-20 17:25:07.705696#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Columbus_2019-03-20 17:23:57.884364.csv' table='[tripadvisor_data_Columbus_2019-03-20 17:23:57.884364#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Corpus_Christi_2019-03-20 17:25:37.663663.csv' table='[tripadvisor_data_Corpus_Christi_2019-03-20 17:25:37.663663#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Dallas_2019-03-20 17:23:45.543665.csv' table='[tripadvisor_data_Dallas_2019-03-20 17:23:45.543665#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Denver_2019-03-20 17:24:20.561348.csv' table='[tripadvisor_data_Denver_2019-03-20 17:24:20.561348#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Detroit_2019-03-20 17:23:49.412811.csv' table='[tripadvisor_data_Detroit_2019-03-20 17:23:49.412811#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Durham_2019-03-20 17:26:48.858106.csv' table='[tripadvisor_data_Durham_2019-03-20 17:26:48.858106#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_El_Paso_2019-03-20 17:24:10.606168.csv' table='[tripadvisor_data_El_Paso_2019-03-20 17:24:10.606168#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Fort_Wayne_2019-03-20 17:25:56.583363.csv' table='[tripadvisor_data_Fort_Wayne_2019-03-20 17:25:56.583363#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Fort_Worth_2019-03-20 17:24:03.846780.csv' table='[tripadvisor_data_Fort_Worth_2019-03-20 17:24:03.846780#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Fremont_2019-03-20 17:26:56.448024.csv' table='[tripadvisor_data_Fremont_2019-03-20 17:26:56.448024#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Fresno_2019-03-20 17:24:40.857943.csv' table='[tripadvisor_data_Fresno_2019-03-20 17:24:40.857943#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Garland_2019-03-20 17:26:35.049619.csv' table='[tripadvisor_data_Garland_2019-03-20 17:26:35.049619#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Glendale_2019-03-20 17:26:05.141614.csv' table='[tripadvisor_data_Glendale_2019-03-20 17:26:05.141614#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Glendale_2019-03-20 17:27:03.025433.csv' table='[tripadvisor_data_Glendale_2019-03-20 17:27:03.025433#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Greensboro_2019-03-20 17:26:15.260050.csv' table='[tripadvisor_data_Greensboro_2019-03-20 17:26:15.260050#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Henderson_2019-03-20 17:26:11.296513.csv' table='[tripadvisor_data_Henderson_2019-03-20 17:26:11.296513#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Hialeah_2019-03-20 17:26:37.047001.csv' table='[tripadvisor_data_Hialeah_2019-03-20 17:26:37.047001#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Honolulu_2019-03-20 17:25:03.631587.csv' table='[tripadvisor_data_Honolulu_2019-03-20 17:25:03.631587#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Houston_2019-03-20 17:23:35.461813.csv' table='[tripadvisor_data_Houston_2019-03-20 17:23:35.461813#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Indianapolis_2019-03-20 17:23:53.849353.csv' table='[tripadvisor_data_Indianapolis_2019-03-20 17:23:53.849353#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Jacksonville_2019-03-20 17:23:51.351819.csv' table='[tripadvisor_data_Jacksonville_2019-03-20 17:23:51.351819#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Jersey_City_2019-03-20 17:26:07.054767.csv' table='[tripadvisor_data_Jersey_City_2019-03-20 17:26:07.054767#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Kansas_City_2019-03-20 17:24:48.010933.csv' table='[tripadvisor_data_Kansas_City_2019-03-20 17:24:48.010933#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Laredo_2019-03-20 17:26:38.913482.csv' table='[tripadvisor_data_Laredo_2019-03-20 17:26:38.913482#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Las_Vegas_2019-03-20 17:24:24.361234.csv' table='[tripadvisor_data_Las_Vegas_2019-03-20 17:24:24.361234#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Lexington-Fayette_2019-03-20 17:25:50.787232.csv' table='[tripadvisor_data_Lexington-Fayette_2019-03-20 17:25:50.787232#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Lincoln_2019-03-20 17:26:08.865523.csv' table='[tripadvisor_data_Lincoln_2019-03-20 17:26:08.865523#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Long_Beach_2019-03-20 17:24:39.209312.csv' table='[tripadvisor_data_Long_Beach_2019-03-20 17:24:39.209312#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Los_Angeles_2019-03-20 17:23:30.234405.csv' table='[tripadvisor_data_Los_Angeles_2019-03-20 17:23:30.234405#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Louisville_Jefferson_County_2019-03-20 17:24:22.453506.csv' table='[tripadvisor_data_Louisville_Jefferson_County_2019-03-20 17:24:22.453506#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Lubbock_2019-03-20 17:26:42.890054.csv' table='[tripadvisor_data_Lubbock_2019-03-20 17:26:42.890054#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Madison_2019-03-20 17:26:26.043267.csv' table='[tripadvisor_data_Madison_2019-03-20 17:26:26.043267#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Memphis_2019-03-20 17:24:01.929865.csv' table='[tripadvisor_data_Memphis_2019-03-20 17:24:01.929865#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Mesa_2019-03-20 17:24:45.246384.csv' table='[tripadvisor_data_Mesa_2019-03-20 17:24:45.246384#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Miami_2019-03-20 17:24:56.388997.csv' table='[tripadvisor_data_Miami_2019-03-20 17:24:56.388997#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Milwaukee_2019-03-20 17:24:18.832217.csv' table='[tripadvisor_data_Milwaukee_2019-03-20 17:24:18.832217#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Minneapolis_2019-03-20 17:25:05.619859.csv' table='[tripadvisor_data_Minneapolis_2019-03-20 17:25:05.619859#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Modesto_2019-03-20 17:26:52.703857.csv' table='[tripadvisor_data_Modesto_2019-03-20 17:26:52.703857#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Montgomery_2019-03-20 17:26:54.491429.csv' table='[tripadvisor_data_Montgomery_2019-03-20 17:26:54.491429#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Nashville-Davidson_2019-03-20 17:24:26.204581.csv' table='[tripadvisor_data_Nashville-Davidson_2019-03-20 17:24:26.204581#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_New_Orleans_2019-03-20 17:26:28.243557.csv' table='[tripadvisor_data_New_Orleans_2019-03-20 17:26:28.243557#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_New_York_2019-03-20 17:23:27.426612.csv' table='[tripadvisor_data_New_York_2019-03-20 17:23:27.426612#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Newark_2019-03-20 17:25:39.755797.csv' table='[tripadvisor_data_Newark_2019-03-20 17:25:39.755797#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Norfolk_2019-03-20 17:26:24.039405.csv' table='[tripadvisor_data_Norfolk_2019-03-20 17:26:24.039405#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Oakland_2019-03-20 17:24:58.411137.csv' table='[tripadvisor_data_Oakland_2019-03-20 17:24:58.411137#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='real' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Oklahoma_City_2019-03-20 17:24:28.056065.csv' table='[tripadvisor_data_Oklahoma_City_2019-03-20 17:24:28.056065#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Omaha_2019-03-20 17:24:54.325717.csv' table='[tripadvisor_data_Omaha_2019-03-20 17:24:54.325717#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Orlando_2019-03-20 17:26:32.763554.csv' table='[tripadvisor_data_Orlando_2019-03-20 17:26:32.763554#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Philadelphia_2019-03-20 17:23:39.370147.csv' table='[tripadvisor_data_Philadelphia_2019-03-20 17:23:39.370147#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Phoenix_2019-03-20 17:23:37.303149.csv' table='[tripadvisor_data_Phoenix_2019-03-20 17:23:37.303149#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Pittsburgh_2019-03-20 17:25:26.203872.csv' table='[tripadvisor_data_Pittsburgh_2019-03-20 17:25:26.203872#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Plano_2019-03-20 17:25:54.421394.csv' table='[tripadvisor_data_Plano_2019-03-20 17:25:54.421394#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Portland_2019-03-20 17:24:30.361027.csv' table='[tripadvisor_data_Portland_2019-03-20 17:24:30.361027#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Raleigh_2019-03-20 17:25:13.882271.csv' table='[tripadvisor_data_Raleigh_2019-03-20 17:25:13.882271#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Reno_2019-03-20 17:26:45.162322.csv' table='[tripadvisor_data_Reno_2019-03-20 17:26:45.162322#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='real' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Riverside_2019-03-20 17:25:33.595642.csv' table='[tripadvisor_data_Riverside_2019-03-20 17:25:33.595642#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Rochester_2019-03-20 17:26:50.877762.csv' table='[tripadvisor_data_Rochester_2019-03-20 17:26:50.877762#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Sacramento_2019-03-20 17:24:42.893408.csv' table='[tripadvisor_data_Sacramento_2019-03-20 17:24:42.893408#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_San_Antonio_2019-03-20 17:23:41.689640.csv' table='[tripadvisor_data_San_Antonio_2019-03-20 17:23:41.689640#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_San_Diego_2019-03-20 17:23:43.528979.csv' table='[tripadvisor_data_San_Diego_2019-03-20 17:23:43.528979#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_San_Francisco_2019-03-20 17:23:55.993589.csv' table='[tripadvisor_data_San_Francisco_2019-03-20 17:23:55.993589#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_San_Jose_2019-03-20 17:23:47.352181.csv' table='[tripadvisor_data_San_Jose_2019-03-20 17:23:47.352181#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='string' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Santa_Ana_2019-03-20 17:25:18.122820.csv' table='[tripadvisor_data_Santa_Ana_2019-03-20 17:25:18.122820#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Scottsdale_2019-03-20 17:26:17.370336.csv' table='[tripadvisor_data_Scottsdale_2019-03-20 17:26:17.370336#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Seattle_2019-03-20 17:24:15.091819.csv' table='[tripadvisor_data_Seattle_2019-03-20 17:24:15.091819#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Shreveport_2019-03-20 17:26:58.416607.csv' table='[tripadvisor_data_Shreveport_2019-03-20 17:26:58.416607#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_St._Louis_2019-03-20 17:25:16.050543.csv' table='[tripadvisor_data_St._Louis_2019-03-20 17:25:16.050543#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='string' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='string' name='checkIn' ordinal='6' />
+                <column datatype='string' name='checkOut' ordinal='7' />
+                <column datatype='string' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='string' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_St._Paul_2019-03-20 17:25:46.679707.csv' table='[tripadvisor_data_St._Paul_2019-03-20 17:25:46.679707#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_St._Petersburg_2019-03-20 17:26:03.125540.csv' table='[tripadvisor_data_St._Petersburg_2019-03-20 17:26:03.125540#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Stockton_2019-03-20 17:25:35.476416.csv' table='[tripadvisor_data_Stockton_2019-03-20 17:25:35.476416#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='string' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Tampa_2019-03-20 17:25:22.311744.csv' table='[tripadvisor_data_Tampa_2019-03-20 17:25:22.311744#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Toledo_2019-03-20 17:25:31.804427.csv' table='[tripadvisor_data_Toledo_2019-03-20 17:25:31.804427#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Tucson_2019-03-20 17:24:32.449909.csv' table='[tripadvisor_data_Tucson_2019-03-20 17:24:32.449909#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Tulsa_2019-03-20 17:25:00.749336.csv' table='[tripadvisor_data_Tulsa_2019-03-20 17:25:00.749336#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Virginia_Beach_2019-03-20 17:24:52.090803.csv' table='[tripadvisor_data_Virginia_Beach_2019-03-20 17:24:52.090803#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Washington_2019-03-20 17:24:16.968306.csv' table='[tripadvisor_data_Washington_2019-03-20 17:24:16.968306#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0fa9q8d1f1jodd17bh9bf0dzoje8' name='tripadvisor_data_Wichita_2019-03-20 17:25:11.700845.csv' table='[tripadvisor_data_Wichita_2019-03-20 17:25:11.700845#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                <column datatype='string' name='hotel_name' ordinal='0' />
+                <column datatype='string' name='url' ordinal='1' />
+                <column datatype='string' name='locality' ordinal='2' />
+                <column datatype='datetime' name='timestamp' ordinal='3' />
+                <column datatype='integer' name='reviews' ordinal='4' />
+                <column datatype='string' name='tripadvisor_rating' ordinal='5' />
+                <column datatype='date' name='checkIn' ordinal='6' />
+                <column datatype='date' name='checkOut' ordinal='7' />
+                <column datatype='integer' name='price_per_night' ordinal='8' />
+                <column datatype='string' name='booking_provider' ordinal='9' />
+                <column datatype='integer' name='no_of_deals' ordinal='10' />
+                <column datatype='string' name='hotel_features' ordinal='11' />
+              </columns>
+            </relation>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[instahashtags2019-03-20 14:54:11.416889.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;false&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[instahashtags2019-03-20 14:54:11.416889.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F2</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F2]</local-name>
+            <parent-name>[instahashtags2019-03-20 14:54:11.416889.csv]</parent-name>
+            <remote-alias>F2</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hotel_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hotel_name]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>hotel_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[url]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>url</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>locality</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[locality]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>locality</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timestamp</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[timestamp]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>timestamp</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reviews</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[reviews]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>reviews</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tripadvisor_rating</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tripadvisor_rating]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>tripadvisor_rating</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>checkIn</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[checkIn]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>checkIn</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>checkOut</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[checkOut]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>checkOut</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_per_night</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price_per_night]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>price_per_night</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>booking_provider</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[booking_provider]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>booking_provider</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>no_of_deals</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[no_of_deals]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>no_of_deals</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hotel_features</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hotel_features]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>hotel_features</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Table Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Table Name]</local-name>
+            <parent-name>[tripadvisor_data_Akron_2019-03-20 17:26:47.007602.csv+]</parent-name>
+            <remote-alias>Table Name</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Name_Hashtag' datatype='string' name='[F1]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Hashtags' datatype='integer' name='[F2]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Booking Provider' datatype='string' name='[booking_provider]' role='dimension' type='nominal' />
+      <column caption='Check In' datatype='string' name='[checkIn]' role='dimension' type='nominal' />
+      <column caption='Check Out' datatype='string' name='[checkOut]' role='dimension' type='nominal' />
+      <column caption='Hotel Features' datatype='string' name='[hotel_features]' role='dimension' type='nominal' />
+      <column caption='Hotel Name' datatype='string' name='[hotel_name]' role='dimension' type='nominal' />
+      <column caption='Locality' datatype='string' name='[locality]' role='dimension' type='nominal' />
+      <column caption='No Of Deals' datatype='string' default-role='measure' default-type='ordinal' name='[no_of_deals]' role='dimension' type='nominal' />
+      <column caption='Price Per Night' datatype='real' name='[price_per_night]' role='dimension' type='ordinal' />
+      <column caption='Reviews' datatype='string' name='[reviews]' role='dimension' type='nominal' />
+      <column caption='Timestamp' datatype='string' name='[timestamp]' role='dimension' type='nominal' />
+      <column caption='Tripadvisor Rating' datatype='string' name='[tripadvisor_rating]' role='dimension' type='nominal' />
+      <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.582051' measure-ordering='alphabetic' measure-percentage='0.417949' show-structure='true' />
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='instahashtags2019-03-20 14:54:11.416889' name='federated.1rlwenv08rtqz513lc7m611m1v7o' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1rlwenv08rtqz513lc7m611m1v7o'>
+            <column caption='Hotel Name' datatype='string' name='[hotel_name]' role='dimension' type='nominal' />
+            <column-instance column='[hotel_name]' derivation='None' name='[none:hotel_name:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:hotel_name:nk]'>
+            <groupfilter function='level-members' level='[none:hotel_name:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:hotel_name:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{96A4E4BE-CE6B-4C7D-B23A-A4624DACCA31}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='51'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1idkk661veq17913uy1280zy68l3].[none:price_per_night:nk]</field>
+            <field>[federated.1rlwenv08rtqz513lc7m611m1v7o].[cnt:price_per_night:ok]</field>
+            <field>[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:F1:nk]</field>
+            <field>[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:hotel_name:nk]</field>
+            <field>[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:locality:nk]</field>
+            <field>[federated.1rlwenv08rtqz513lc7m611m1v7o].[none:price_per_night:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6C7FA398-01EE-4FA6-B5FB-A4C8D7FFE25C}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Sheet 1' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAFeElEQVR4nO3YsQ0DMQwEwbfhSID6r1FVyMn3wGBnGjhmC/Bz770PADnf6QMAmCEAAFEC
+      ABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAA
+      UQIAECUAAFECABAlAABRAgAQ9ZsYPec8a62JaQBeIwFYaz1774lpAF5eQABRAgAQJQAAUQIA
+      ECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABR
+      AgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUA
+      AFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQ
+      JQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFEC
+      ABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAA
+      UQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAl
+      AABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIA
+      ECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABR
+      AgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUA
+      AFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQ
+      JQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFEC
+      ABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAA
+      UQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAl
+      AABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIA
+      ECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABR
+      AgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUA
+      AFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQ
+      JQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFEC
+      ABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAA
+      UQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAl
+      AABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIA
+      ECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABR
+      AgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAEPUH
+      0FoKHrgSmzkAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
