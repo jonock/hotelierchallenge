@@ -19,4 +19,8 @@ Python-Skripte:
    - tripadvisor_scraper_spechotel.py &
    - tripadvisor_scraper.py
 
-   
+Die CSV Ausgabedateien werden in den Unterordnern des Ordners "Scrapes" abgespeichert.
+
+
+
+// 29.3.2019
