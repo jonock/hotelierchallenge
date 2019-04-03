@@ -21,6 +21,8 @@ def importHashtagList(filename):
         return(list(csv_list))
 
 def parse(locality,checkin_date,checkout_date,sort):
+    checkin_date = datetime.strptime(checkin_date,"%Y/%m/%d")
+    checkout_date = datetime.strptime(checkout_date,"%Y/%m/%d")
     checkIn = checkin_date.strftime("%Y/%m/%d")
     checkOut = checkout_date.strftime("%Y/%m/%d")
     print("Scraper Inititated for Locality: %s"%locality)
