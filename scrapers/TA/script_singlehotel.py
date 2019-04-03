@@ -15,7 +15,7 @@ for url in urls:
     print(url + ' kommt nun')
     for _ in range(3):   #beim ersten scrapen nimmts die Preise nicht immer, deshalb der Loop hier.
         data = tripadvisor_scraper_spechotel.singleparse(url,checkin_date,checkout_date,sort)
-    tripadvisor_scraper_spechotel.writeTripAdvisor(data, 'TEST')
+    tripadvisor_scraper_spechotel.writeTripAdvisor(data, url)
 
 
 #Achtung: um den Überblick über die Meloneras price scrapes csv zu behalten werden sie in einen Unterordner in scrapes gespeichert
