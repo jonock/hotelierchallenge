@@ -97,8 +97,16 @@ def parse(locality,checkin_date,checkout_date,sort):
         name = ''.join(raw_hotel_name).strip() if raw_hotel_name else None
         hotel_features = ','.join(raw_hotel_features)
         pricelen = (len(raw_hotel_price_per_night)) - 1
-        r_price_night = raw_hotel_price_per_night[pricelen].encode('utf-8')
-        price_per_night = ''.join(raw_hotel_price_per_night) if raw_hotel_price_per_night else None
+#        print(pricelen)
+        if pricelen < 0:
+            r_price_night = 0;
+            print('LENGTHBUG')
+        else:
+            r_price_night = raw_hotel_price_per_night[pricelen]
+#        print(r_price_night)
+        ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
+#        print(ra_price_night)
+        price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
         no_of_deals = re.findall("all\s+?(\d+)\s+?",''.join(raw_no_of_deals))
         booking_provider = ''.join(raw_booking_provider).strip() if raw_booking_provider else None
 
@@ -124,14 +132,14 @@ def parse(locality,checkin_date,checkout_date,sort):
         hotel_data.append(data)
     return hotel_data
 
-def writeTripAdvisor(data,name):
-    with open('scrapes/singlehotel/tripadvisor_data' + str(name) + '.csv','wb') as csvfile:
-        fieldnames = ['provider_name','price']
+def writeTripAdvisor(data,locality):
+    with open('scrapes/Meloneras/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
+        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
             writer.writerow(row)
-        print(' gespeichert.')
+        print(str(len(data)) + ' Hotels für ' + locality + ' gespeichert.')
 
 
 if __name__ == '__main__':
