@@ -132,14 +132,14 @@ def parse(locality,checkin_date,checkout_date,sort):
         hotel_data.append(data)
     return hotel_data
 
-def writeTripAdvisor(data,name):
-    with open('scrapes/singlehotel/tripadvisor_data' + str(name) + '.csv','wb') as csvfile:
-        fieldnames = ['provider_name','price']
+def writeTripAdvisor(data,locality):
+    with open('scrapes/Meloneras/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
+        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
             writer.writerow(row)
-        print(' gespeichert.')
+        print(str(len(data)) + ' Hotels für ' + locality + ' gespeichert.')
 
 
 if __name__ == '__main__':
