@@ -97,8 +97,16 @@ def parse(locality,checkin_date,checkout_date,sort):
         name = ''.join(raw_hotel_name).strip() if raw_hotel_name else None
         hotel_features = ','.join(raw_hotel_features)
         pricelen = (len(raw_hotel_price_per_night)) - 1
-        r_price_night = raw_hotel_price_per_night[pricelen].encode('utf-8')
-        price_per_night = ''.join(raw_hotel_price_per_night) if raw_hotel_price_per_night else None
+#        print(pricelen)
+        if pricelen < 0:
+            r_price_night = 0;
+            print('LENGTHBUG')
+        else:
+            r_price_night = raw_hotel_price_per_night[pricelen]
+#        print(r_price_night)
+        ra_price_night = str(r_price_night).replace('CHF','').replace(' ','')
+#        print(ra_price_night)
+        price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
         no_of_deals = re.findall("all\s+?(\d+)\s+?",''.join(raw_no_of_deals))
         booking_provider = ''.join(raw_booking_provider).strip() if raw_booking_provider else None
 
