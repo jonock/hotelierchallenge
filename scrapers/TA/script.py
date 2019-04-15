@@ -7,8 +7,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 localities = tripadvisor_scraper.importHashtagList('city.txt')
 
 #Daten:"%Y/%m/%d"
-checkin_date = '2019/04/13'
-checkout_date = '2019/04/14'
+checkin_date = '2019/05/18'
+checkout_date = '2019/05/19'
 sort = 'recommended'
 
 for locality in localities:
