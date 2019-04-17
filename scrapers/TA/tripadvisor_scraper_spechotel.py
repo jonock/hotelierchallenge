@@ -12,6 +12,8 @@ import unicodecsv as ucsv
 import argparse
 import csv as ccsv
 
+timestamp = datetime.now()
+
 def importHashtagList(filename):
     with open(filename) as csv_file:
         csv_reader = ccsv.reader(csv_file, delimiter=',')
@@ -105,7 +107,7 @@ def singleparse(full_url,checkin_date,checkout_date,sort):
 
 def writeTripAdvisor(data,namestr):
     with open('scrapes/spechotel/tripadvisor_data_' + str(namestr).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
-        fieldnames = ['platform_name','price_per_night']
+        fieldnames = ['platform_name','price_per_night', timestamp]
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
