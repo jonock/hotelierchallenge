@@ -107,7 +107,7 @@ def singleparse(full_url,checkin_date,checkout_date,sort):
     return hotel_data
 
 def writeTripAdvisor(data,namestr):
-    with open('scrapes/spechotel/tripadvisor_data' + str(namestr).replace('https://','_').replace('/','_') + '_' + str(datetime.now()).replace(':','-') +'.csv','wb') as csvfile:
+    with open('scrapes/Kontrolle/tripadvisor_data' + str(namestr).replace('https://','_').replace('/','_') + '_' + str(datetime.now()).replace(':','-') +'.csv','wb') as csvfile:
         #'platform_name' deleted from csv for now
         fieldnames = ['price_per_night', 'timestamp']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)

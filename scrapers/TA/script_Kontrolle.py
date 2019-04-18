@@ -1,10 +1,10 @@
-import tripadvisor_scraper_spechotel
+import tripadvisor_scraper_spechotel_Kontrolle
 from datetime import datetime
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 #Input-File
-urls = tripadvisor_scraper_spechotel.importHashtagList('urls.txt')
+urls = tripadvisor_scraper_spechotel_Kontrolle.importHashtagList('urls_Kontrolle.txt')
 
 #Daten:"%Y/%m/%d"
 checkin_date = '2019/05/18'
@@ -14,8 +14,8 @@ sort = 'recommended'
 for url in urls:
     print(url + ' kommt nun')
     for _ in range(3):   #beim ersten scrapen nimmts die Preise nicht immer, deshalb der Loop hier.
-        data = tripadvisor_scraper_spechotel.singleparse(url,checkin_date,checkout_date,sort)
-    tripadvisor_scraper_spechotel.writeTripAdvisor(data, url)
+        data = tripadvisor_scraper_spechotel_Kontrolle.singleparse(url,checkin_date,checkout_date,sort)
+    tripadvisor_scraper_spechotel_Kontrolle.writeTripAdvisor(data, url)
 
 
 #Achtung: um den Überblick über die Meloneras price scrapes csv zu behalten werden sie in einen Unterordner in scrapes gespeichert
