@@ -13,6 +13,7 @@ for entry in glob('Test/*.csv'):
             prices.drop('platform_name', axis=1, inplace=True)
 #delete rows (axis = 0)
             prices.drop(prices.index[1:],axis = 0, inplace=True)
+            prices.replace(",", ".", inplace=True)
         except:
             next
 #writing the same csv with cleaned and encoded data
