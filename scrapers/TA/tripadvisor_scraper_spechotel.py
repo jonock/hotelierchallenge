@@ -98,16 +98,18 @@ def singleparse(full_url,checkin_date,checkout_date,sort):
         price_per_night = ''.join(str(ra_price_night)) if ra_price_night else None
 
         data = {
-                    'platform_name':name,
+                    #'platform_name':name,
                     'price_per_night':price_per_night,
+                    'timestamp':timestamp
         }
         print(data)
         hotel_data.append(data)
     return hotel_data
 
 def writeTripAdvisor(data,namestr):
-    with open('scrapes/spechotel/tripadvisor_data' + str(namestr).replace('https://','_').replace('/','_') + '_' + str(datetime.now()).replace(':','-') +'.csv','wb') as csvfile:
-        fieldnames = ['platform_name','price_per_night', timestamp]
+    with open('scrapes/spechotel/tripadvisor_data_test' + str(namestr).replace('https://','_').replace('/','_') + '_' + str(datetime.now()).replace(':','-') +'.csv','wb') as csvfile:
+        #'platform_name' deleted from csv for now
+        fieldnames = ['price_per_night', 'timestamp']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
