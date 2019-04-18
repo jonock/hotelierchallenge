@@ -9,6 +9,8 @@ import unicodecsv as ucsv
 import csv as ccsv
 import argparse
 
+timestamp = datetime.now()
+
 def importHashtagList(filename):
     with open(filename) as csv_file:
         csv_reader = ccsv.reader(csv_file, delimiter=',')
@@ -117,16 +119,17 @@ def parse(locality,checkin_date,checkout_date,sort):
 
         data = {
                     'hotel_name':name,
-                    'url':url,
-                    'locality':locality,
-                    'reviews':reviews,
-                    'tripadvisor_rating':rating,
-                    'checkOut':checkOut,
-                    'checkIn':checkIn,
-                    'hotel_features':hotel_features,
+                    #'url':url,
+                    #'locality':locality,
+                    #'reviews':reviews,
+                    #'tripadvisor_rating':rating,
+                    #'checkOut':checkOut,
+                    #'checkIn':checkIn,
+                    #'hotel_features':hotel_features,
                     'price_per_night':price_per_night,
-                    'no_of_deals':no_of_deals,
-                    'booking_provider':booking_provider
+                    #'no_of_deals':no_of_deals,
+                    #'booking_provider':booking_provider
+                    'timestamp':timestamp
 
         }
         hotel_data.append(data)
@@ -134,7 +137,8 @@ def parse(locality,checkin_date,checkout_date,sort):
 
 def writeTripAdvisor(data,locality):
     with open('scrapes/Region/tripadvisor_data_' + str(locality).replace(' ','_').replace('/','_') + '_' + str(datetime.now())+'.csv','wb') as csvfile:
-        fieldnames = ['hotel_name','url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut','price_per_night','booking_provider','no_of_deals','hotel_features']
+        #'url','locality','timestamp','reviews','tripadvisor_rating','checkIn','checkOut',
+        fieldnames = ['hotel_name','price_per_night','timestamp']
         writer = ucsv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
