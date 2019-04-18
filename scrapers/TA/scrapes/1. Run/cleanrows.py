@@ -4,7 +4,7 @@ import pandas as pd
 import os
 from glob import glob
 
-for entry in glob('Hotel_Einzeln/*.csv'):
+for entry in glob('Test/*.csv'):
     with open(entry, 'r') as f:
         prices = pd.read_csv (entry)
 
@@ -15,7 +15,7 @@ for entry in glob('Hotel_Einzeln/*.csv'):
             prices.drop(prices.index[1:],axis = 0, inplace=True)
         except:
             next
-
-        prices.to_csv(entry)
+#writing the same csv with cleaned and encoded data
+        prices.to_csv(entry, header=True, index=False, encoding='utf-8-sig')
 
 print("Done")
