@@ -120,7 +120,7 @@ def parse(locality,checkin_date,checkout_date,sort):
         data = {
                     'hotel_name':name,
                     'url':url,
-                    #'locality':locality,
+                    'locality':locality,
                     #'reviews':reviews,
                     #'tripadvisor_rating':rating,
                     #'checkOut':checkOut,
