@@ -7,7 +7,7 @@ from glob import glob
 all_data = pd.DataFrame()
 
 #open every file in specified folder
-for entry in glob('Aphrodite/*.xlsx'):
+for entry in glob('Paris/*.xlsx'):
     with open(entry, 'r') as f:
         df = pd.read_excel(entry)
         all_data = all_data.append(df, ignore_index=True)
