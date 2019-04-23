@@ -8,8 +8,6 @@ from glob import glob
 for entry in glob('Hotel_Region/*.xlsx'):
     with open(entry, 'r') as f:
         region_prices = pd.read_excel (entry)
-        #print(region_prices)
-
         try:
             region_prices.drop('hotel_name', axis=1, inplace=True)
         except:
@@ -23,12 +21,9 @@ for entry in glob('Hotel_Region/*.xlsx'):
         #convert strings to numeric values for further calculations
         region_prices = region_prices.apply(pd.to_numeric, errors='coerce').combine_first(region_prices)
         avg = region_prices.loc[:, "price_per_night"].mean()
-        #print(avg)
-
-
 
         output = pd.DataFrame([[locality, avg, date]],
-                        columns = ['Locality', 'AVG_Price', 'Date'])
+                                columns = ['Locality', 'AVG_Price', 'Date'])
         output.to_excel(entry + "_average.xlsx")
 
         print ("Excel Created")
