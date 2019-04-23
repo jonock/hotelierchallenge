@@ -5,7 +5,7 @@ import numpy as np
 import os
 from glob import glob
 
-for entry in glob('Test/*.xlsx'):
+for entry in glob('Hotel_Region/*.xlsx'):
     with open(entry, 'r') as f:
         region_prices = pd.read_excel (entry)
         #print(region_prices)
