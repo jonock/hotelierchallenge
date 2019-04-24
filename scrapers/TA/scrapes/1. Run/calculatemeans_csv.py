@@ -47,9 +47,9 @@ for entry in glob('Hotel_Region/*average.xlsx'):
     with open(entry, 'r') as f:
         df = pd.read_excel(entry)
         all_data = all_data.append(df, ignore_index=True)
-        #x = all_data.describe()
+
         #write appended data to excel
-        all_data.to_excel('Region_Male_Prices_appended.xlsx')
+        all_data.to_excel('Region_Meloneras_Prices_appended.xlsx')
 
 print('Dates appended - Excel saved')
 
