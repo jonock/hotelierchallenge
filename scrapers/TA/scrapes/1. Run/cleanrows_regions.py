@@ -1,4 +1,4 @@
-#this script will go through the hotel_price files and delete unnecessary RainbowClubSA
+#this script will go through the hotel_price files and delete unnecessary columns
 
 import pandas as pd
 import os
