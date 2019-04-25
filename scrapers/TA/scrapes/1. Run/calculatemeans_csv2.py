@@ -10,6 +10,7 @@ for entry in glob('Hotel_Region/*.xlsx'):
     with open(entry, 'r') as f:
         df = pd.read_excel(entry, index_col=None)
 
+
         #drop not needed columns
         try:
             df.drop('hotel_name', axis=1, inplace=True)
@@ -23,16 +24,17 @@ for entry in glob('Hotel_Region/*.xlsx'):
 for entry in glob('Hotel_Region/*.csv'):
     with open(entry, 'r') as f:
         region_prices = pd.read_csv (entry)
+
         #save locality and date in variables to write to xlsx later
         locality = region_prices.values[1,0]
-        #date = region_prices.values[0,2]
-        #date = region_prices.loc[region_prices.Datum, 'Datum'].values[0]
+        date = region_prices.values[1,2]
+
 
         #convert strings to numeric values for further calculations
         region_prices = region_prices.apply(pd.to_numeric, errors='coerce').combine_first(region_prices)
         avg = region_prices.loc[:, "price_per_night"].mean()
 
-        output = pd.DataFrame([[locality, avg, 'date']],
+        output = pd.DataFrame([[locality, avg, date]],
                                 columns = ['Locality', 'AVG_Price', 'Date'])
         output.to_excel(entry + "_average.xlsx")
 
@@ -46,9 +48,9 @@ for entry in glob('Hotel_Region/*average.xlsx'):
     with open(entry, 'r') as f:
         df = pd.read_excel(entry)
         all_data = all_data.append(df, ignore_index=True)
-        print("price appended")
+        #x = all_data.describe()
         #write appended data to excel
-        all_data.to_excel('Region_Venedig_Prices_appended.xlsx')
+        all_data.to_excel('Region_Venice_Prices_appended.xlsx')
 
 print('Dates appended - Excel saved')
 
