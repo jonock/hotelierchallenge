@@ -2,16 +2,14 @@
 
 import pandas as pd
 from glob import glob
+import numpy as np
 
 
 #open every file in specified folder
-for entry in glob('Test3/*.xlsx'):
+for entry in glob('Test/*.xlsx'):
     with open(entry, 'r') as f:
         region_prices = pd.read_excel(entry, index_col=None)
 
-        region_prices['price_per_night'] = region_prices['price_per_night'].str.replace(',','')
-        #region_prices = region_prices['price_per_night'].apply(pd.to_numeric).combine_first(region_prices)
-        #avg = region_prices.loc[:, "price_per_night"].mean()
-        #print(avg)
-        region_prices.to_excel(entry + "_removed.xlsx", index=False)
+        #region_prices.sort_values('price_per_night')
+        region_prices.to_excel(entry, index=False)
 print("Done")
