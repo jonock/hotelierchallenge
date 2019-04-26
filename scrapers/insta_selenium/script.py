@@ -6,6 +6,7 @@ from hashtaghandler import *
 
 #Automatische Suche:
 hashtags = importHashtagList('../TA/city.txt')
+##TEST
 #Manuelle Suche:
 #hashtags = getHashtags()
 
