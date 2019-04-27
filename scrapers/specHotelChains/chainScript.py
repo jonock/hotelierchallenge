@@ -1,0 +1,3 @@
+import hotelhandler
+
+hotelhandler.scrapeMariott()

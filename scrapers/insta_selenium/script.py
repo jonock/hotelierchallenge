@@ -5,7 +5,8 @@ from datetime import datetime
 from hashtaghandler import *
 
 #Automatische Suche:
-hashtags = importHashtagList('us-cities.txt')
+hashtags = importHashtagList('../TA/city.txt')
+##TEST
 #Manuelle Suche:
 #hashtags = getHashtags()
 
