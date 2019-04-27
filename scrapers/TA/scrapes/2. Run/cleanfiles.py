@@ -5,7 +5,7 @@ import os
 import xlsxwriter
 from glob import glob
 
-for entry in glob('Test/*.csv'):
+for entry in glob('Alle Hotels/*.csv'):
     with open(entry, 'r') as f:
         prices = pd.read_csv (entry)
 
