@@ -1,3 +1,3 @@
 import hotelhandler
 
-hotelhandler.scrapeMariott()
+hotelhandler.writeResults(hotelhandler.scrapeAnantara(),'Anantara')
