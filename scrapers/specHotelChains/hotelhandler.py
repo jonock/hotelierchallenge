@@ -5,13 +5,16 @@ from datetime import datetime
 from selenium.webdriver.chrome.options import Options
 
 def scrapeAnantara():
-    options = Options()
-    options.headless = True
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome('./chromedriver',chrome_options=chrome_options)
     hotels=[1]
 #    driver = webdriver.Chrome(executable_path=os.path.abspath(“chromedriver"),chrome_options=chrome_options)
     results = []
     for i in hotels:
-        driver = webdriver.Chrome('chromedriver', chrome_options=options)
+#        driver = webdriver.Chrome('chromedriver', chrome_options=options)
         driver.get('https://secure.minorhotels.com/rooms.aspx?bc=AN&hc=AQA&checkin=18/05/2019&nights=1&adults=2&rooms=1&children=0&roomcode=&language=de&_ga=2.170835232.1890400155.1556293984-1478239563.1556293984')
         time.sleep(2) # Let the user actually see something!
         try:
