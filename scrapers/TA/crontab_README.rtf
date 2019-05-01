@@ -9,33 +9,31 @@
 ## Damit ist ein automatisiertes Scrapen m\'f6glich\
 \
 ## Input-Code:\
-PATH=~/hotelierchallenge/scrapers/TA\
-\
-5 * * * * /usr/bin/git pull origin master \
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/TA && ~/anaconda3/bin/python ~/hotelierchallenge/scrapers/TA/script_singlehotel.py\
-\
-PATH=~/hotelierchallenge/scrapers/TA\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/TA && ~/anaconda3/bin/python ~/hotelierchallenge/scrapers/TA/script.py\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/TA && ~/anaconda3/bin/python ~/hotelierchallenge/scrapers/TA/script_Kontrolle.py\
-\
-PATH=~/hotelierchallenge/Twitter_Scripts/Influencer_Screening\
-\
-5 * * * * cd ~/hotelierchallenge/Twitter_Scripts/Influencer_Screening && ~/anaconda3/bin/python ~/hotelierchallenge/Twitter_Scripts/Influencer_Screening/InflScreeningcsv.py\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/TA/scrapes/spechotel && /usr/bin/git add .\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/TA/scrapes/spechotel && /usr/bin/git commit -a "Neue Scrapes"\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/TA && /usr/bin/git push origin master\
-\
+LANG = en_US.UTF-8
 
-PATH=~/hotelierchallenge/scrapers/specHotelChains\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/specHotelChains && ~/anaconda3/bin/python ~/hotelierchallenge/scrapers/specHotelChains/hotelhandler.py\
-\
-5 * * * * cd ~/hotelierchallenge/scrapers/specHotelChains && ~/anaconda3/bin/python ~/hotelierchallenge/scrapers/specHotelChains/chainScript.py\
-\
+PATH=~/hotelierchallenge/scrapers/TA
+
+12 * * * * /usr/bin/git pull origin master
+
+12 * * * * cd ~/hotelierchallenge/scrapers/TA && ~/anaconda3/bin/python3 ~/hotelierchallenge/scrapers/TA/script_singlehotel.py
+
+PATH=~/hotelierchallenge/scrapers/TA
+
+12 * * * * cd ~/hotelierchallenge/scrapers/TA && ~/anaconda3/bin/python3 ~/hotelierchallenge/scrapers/TA/script.py
+
+12 * * * * cd ~/hotelierchallenge/scrapers/TA && ~/anaconda3/bin/python3 ~/hotelierchallenge/scrapers/TA/script_Kontrolle.py
+
+PATH=~/hotelierchallenge/Twitter_Scripts/Influencer_Screening
+
+12 * * * * cd ~/hotelierchallenge/Twitter_Scripts/Influencer_Screening && ~/anaconda3/bin/python3 ~/hotelierchallenge/Twitter_Scripts/Influencer_Screening/InflScreeningcsv.py
+
+PATH=~/hotelierchallenge/scrapers/TA/specHotelChains
+
+12 * * * *  cd ~/hotelierchallenge/scrapers/specHotelChains && ~/anaconda3/bin/python3 ~/hotelierchallenge/scrapers/specHotelChains/chainScript.py > /tmp/file.log 2>/tmp/fileerror.log
+
+12 * * * * cd ~/hotelierchallenge/scrapers/TA/scrapes/spechotel && /usr/bin/git add .
+
+12 * * * * cd ~/hotelierchallenge/scrapers/TA/scrapes/spechotel && /usr/bin/git commit -a "Neue Scrapes"
+
+12 * * * * cd ~/hotelierchallenge/scrapers/TA && /usr/bin/git push origin master
 // 11.04.2019}
