@@ -1,5 +1,6 @@
 ## Der Ordner TA enthält alle Skripte im Bezug auf das Price Scraping auf Tripadvisor:
 
+
 ## Generelle Information:
 - Die Idee ist es, nicht nur Preise für einzelne Hotels zu scrapen sondern diese mit einer Kontrollgruppe zu vergleichen
   Aus diesem Grund, gibt es einige Skripte sowie Input-Files mehrfach.
@@ -33,7 +34,7 @@
     - Ordner Region: enthält die gescrapten Preise der Kontrollgruppen-Hotels
     - Ordner spechotel: enthält die gescrapten Preise der einzelnen Hotels
 
-## Aktuellste Anpassungen: 
+## Aktuellste Anpassungen:
 - Veränderung der CSV Ausgaben (script.py und script_singlehotel.py) sodass nur für die
   Datenbereinigung und -visualisierung benötigte Angaben ausgegeben werden.
 
