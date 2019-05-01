@@ -3,6 +3,7 @@ echo Jetzt wird lxml installiert
 sudo apt-get install unzip -y
 sudo apt-get install libxml2-dev -y libxslt1-dev -y
 sudo apt-get install python3-lxml python-lxml -y
+sudo apt-get install chromium-browser -y
 echo Erste Huerde halbwegs geschafft, jetzt kommt der Python Kram
 echo Es folgt Selenium
 wget https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
