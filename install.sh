@@ -8,7 +8,7 @@ echo Es folgt Selenium
 wget https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_linux64.zip
 unzip chromedriver_linux64.zip
 sudo chmod a+x chromedriver
-cp chromedriver /scrapers/specHotelChains
+cp ./chromedriver /scrapers/specHotelChains/
 echo Ok, jetzt noch die Python extensions
 pip install -r requirements.txt
 echo ok, das wars
