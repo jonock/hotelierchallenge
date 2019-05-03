@@ -5,7 +5,7 @@ import os
 import xlsxwriter
 from glob import glob
 
-for entry in glob('Alle Hotels/*.csv'):
+for entry in glob('Test/Kontrolle/folder/*.csv'):
     with open(entry, 'r') as f:
         prices = pd.read_csv (entry)
 
@@ -13,7 +13,7 @@ for entry in glob('Alle Hotels/*.csv'):
         try:
             #prices.drop('platform_name', axis=1, inplace=True)
 #delete rows (axis = 0)
-            prices.drop(prices.index[1:],axis = 0, inplace=True)
+        prices.drop(prices.index[1:],axis = 0, inplace=True)
             #prices.replace(",", ".", inplace=True)
         except:
             next
