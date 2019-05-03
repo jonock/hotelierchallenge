@@ -5,22 +5,26 @@ from glob import glob
 from glob import iglob
 import os
 
-rootdir_glob = '/Users/TobiasRordorf/Desktop/UNI/MBI\ HSG/4.\ Semester/Python/GitHub/hotelierchallenge/scrapers/TA/scrapes/Test/**/*'
-
-#store data in pandas DataFrame
-#all_data = pd.DataFrame()
-
-file_list = [f for f in iglob('**/*', recursive=True) if os.path.isfile(f)]
-
+rootdir = './Test'
 #open every file in specified folder
 
-for entry in file_list:
+for sfolder in os.listdir(rootdir):
+#    print(sfolder)
+    if sfolder == '.DS_Store':
+        continue
+    childdir = os.path.join(rootdir, sfolder)
     all_data = pd.DataFrame()
-    with open(entry, 'r') as f:
-        df = pd.read_csv(entry)
-        all_data = all_data.append(df, ignore_index=True)
-        #x = all_data.describe()
-        #write appended data to excel
-        all_data.to_excel(entry + '_Prices_appended.csv')
+    all_data.drop(all_data.index, inplace=True)
+    sfoler = childdir + '/*.csv'
+    n=0
+    for entry in glob(sfoler):
+        n = n + 1
+        with open(entry, 'r') as f:
+            df = pd.read_csv(entry)
+            all_data = all_data.append(df, ignore_index=True)
+    print(str(n)+' mal geschrieben bei '+ sfolder)
+    print(len(all_data))
+    filename = 'appended/' + str(sfolder)+'_append.csv'
+    all_data.to_csv(filename, header=True, index=False, encoding='utf-8-sig' )
 
-print('Dates appended - Excel saved')
+    print('Dates appended - Excel saved')

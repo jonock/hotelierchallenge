@@ -5,9 +5,9 @@ from glob import glob
 
 #store data in pandas DataFrame
 all_data = pd.DataFrame()
-
 #open every file in specified folder
-for entry in glob('Luxury Bahia Jamaica/*.csv'):
+
+for entry in glob('Casa Gaia Capri/*.csv'):
     with open(entry, 'r') as f:
         df = pd.read_csv(entry)
         all_data = all_data.append(df, ignore_index=True)
