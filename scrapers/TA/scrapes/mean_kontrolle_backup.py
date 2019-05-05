@@ -17,6 +17,7 @@ for sfolder in os.listdir(rootdir):
 
     avg = pd.DataFrame()
     all_data = pd.DataFrame()
+    avgmean_appended = pd.DataFrame()
     avg.drop(avg.index, inplace=True)
     sfoler = childdir + '/*.csv'
     n=0
@@ -47,9 +48,9 @@ for sfolder in os.listdir(rootdir):
                 #print(avgvar)
         print(avgvar)
         avgmean = avgvar.mean()
-        avgmean_appended = pd.DataFrame()
+        #avgmean = int(avgmean)  str, int and float can't be concatenated
         avgmean_appended = avgmean_appended.append(avgmean, ignore_index=True)
-        print(avgmean_appended)
+        print(type(avgmean_appended))
         all_data.drop(all_data.index, inplace=True)
 
 #        print(str(checklist))
