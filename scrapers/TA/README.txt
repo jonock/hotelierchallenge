@@ -12,22 +12,43 @@
 - city.txt = Dies ist der Input für script.py. Beim Input handelt es sich um den Namen einer Stadt,
   für die Hotel-Preise gescrapt werden sollen.
 
+- city_1.Run.txt = Gleiches Dokument wie city.txt, welches für den 1. Run genutzt wurde.
+
 - urls.txt = Dies ist der Input für script_singlehotel.py. Beim Input handelt es sich um den Tripadvisor-URL
   eines bestimmten Hotels für welches die Übernachtungspreise gescrapt werden.
+
+- urls_1.Run.txt = Gleiches Dokument wie urls.txt, welches für den 1. Run genutzt wurde.
+
+- urls_Kontrolle.txt = Dies ist der Input für script_Kontrolle.py. Beim Input handelt es sich um die Kontrollgruppe der Hotels aus urls.txt. Das Dokument enthält Tripadvisor-URL
+ bestimmter Hotels für welche die Übernachtungspreise gescrapt werden.
 
 (- us-cities.txt = hier handelt es sich um ein test input file.)
 
 
 ## Python-Skripte:
-- script.py = Dieses Skript führt das Price-Scraping für 30 Hotels aus (Input = city.txt) und erstellt eine CSV-Datei mit den Preisen
+- script.py = 
+			Zweck: Dieses Skript führt das Price-Scraping für 30 Hotels aus gewissen Regionen aus.
+			Input: city.txt mit den Regionen  
+			Ausgeführte Funktionen: tripadvisor_scraper.py 			
+			Output: CSV-Datei mit Preisen der Hotels
+			Speicherort Output: ~/hotelierchallenge/scrapers/TA/Scrapes/Region
 
-- script_singlehotel.py = Dieses Skript führt das Price-Scraping für 1 Hotel aus (Input = urls.txt) und erstellt eine CSV-Datei mit den Preisen
+- script_singlehotel.py =
+			Zweck: Dieses Skript führt das Price-Scraping für 1 Hotel aus.
+			Input: urls.txt mit den TripAdvisor-Urls der einzelnen Hotels
+			Ausgeführte Funktionen: tripadvisor_scraper_spechotel.py
+			Output: CSV-Datei mit Preisen der einzelnen Hotels
+			Speicherort Output: ~/hotelierchallenge/scrapers/TA/Scrapes/spechotel
+
+- script_Kontrolle.py = 
+			Zweck: Dieses Skript führt das Price-Scraping für 5 Hotels aus der Kontrollgruppe aus.
+			Input: urls_Kontrolle.txt mit den TripAdvisor-Urls der einzelnen Hotels der Kontrollgruppe
+			Ausgeführte Funktionen: tripadvisor_scraper_spechotel_Kontrolle.py
+			Output: CSV-Datei mit Preisen der einzelnen Hotels aus der Kontrollgruppe
+			Speicherort Output: ~/hotelierchallenge/scrapers/TA/Scrapes/Kontrolle
 
 - cleanrows.py (im Unterordner scrapes/1.Run): bereinigt die CSV-Outputs aus script_singlehotel.py zur weiteren Datenverarbeitung
 
-=> die in beiden Skripten verwendeten Funktionen sind in folgenden .py Files definiert:
-   - tripadvisor_scraper_spechotel.py &
-   - tripadvisor_scraper.py
 
 ## Ausgabedateien:
 - Die CSV Ausgabedateien werden in den Unterordnern des Ordners "Scrapes" abgespeichert.
@@ -43,4 +64,4 @@
 - ursl_1.Run.txt => dies ist das Input-File des ersten Testlaufs (einzelne Hotels)
 
 
-// 18.4.2019
+// 11.5.2019
