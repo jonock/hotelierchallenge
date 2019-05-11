@@ -9,18 +9,20 @@
     Zeitraum gescrapt werden. Dateien und Skripte welche mit Kontrolle bezeichnet sind dienen dazu dieses Problem zu umgehen (WORK IN PROGRESS)
 
 ## Input-Files:
-- city.txt = Dies ist der Input für script.py. Beim Input handelt es sich um den Namen einer Stadt,
-  für die Hotel-Preise gescrapt werden sollen.
+- city.txt = 
+			Dies ist der Input für script.py. Beim Input handelt es sich um den Namen einer Stadt, für die Hotel-Preise gescrapt werden sollen.
 
-- city_1.Run.txt = Gleiches Dokument wie city.txt, welches für den 1. Run genutzt wurde.
+- city_1.Run.txt (Archiv) = 
+			Gleiches Dokument wie city.txt, welches für den 1. Run genutzt wurde.
 
-- urls.txt = Dies ist der Input für script_singlehotel.py. Beim Input handelt es sich um den Tripadvisor-URL
-  eines bestimmten Hotels für welches die Übernachtungspreise gescrapt werden.
+- urls.txt = 
+			Dies ist der Input für script_singlehotel.py. Beim Input handelt es sich um den Tripadvisor-URL eines bestimmten Hotels für welches die Übernachtungspreise gescrapt werden.
 
-- urls_1.Run.txt = Gleiches Dokument wie urls.txt, welches für den 1. Run genutzt wurde.
+- urls_1.Run.txt (Archiv) = 
+			Gleiches Dokument wie urls.txt, welches für den 1. Run genutzt wurde.
 
-- urls_Kontrolle.txt = Dies ist der Input für script_Kontrolle.py. Beim Input handelt es sich um die Kontrollgruppe der Hotels aus urls.txt. Das Dokument enthält Tripadvisor-URL
- bestimmter Hotels für welche die Übernachtungspreise gescrapt werden.
+- urls_Kontrolle.txt = 
+			Dies ist der Input für script_Kontrolle.py. Beim Input handelt es sich um die Kontrollgruppe der Hotels aus urls.txt. Das Dokument enthält Tripadvisor-URL bestimmter Hotels für welche die Übernachtungspreise gescrapt werden.
 
 (- us-cities.txt = hier handelt es sich um ein test input file.)
 
@@ -47,21 +49,21 @@
 			Output: CSV-Datei mit Preisen der einzelnen Hotels aus der Kontrollgruppe
 			Speicherort Output: ~/hotelierchallenge/scrapers/TA/Scrapes/Kontrolle
 
-- cleanrows.py (im Unterordner scrapes/1.Run): bereinigt die CSV-Outputs aus script_singlehotel.py zur weiteren Datenverarbeitung
+- cleanrows.py =
+			Zweck: Diese Skript bereinigt die CSV-Outputdateien zu Weiterverarbeitung 
+			Input: CSV-Dateien von script_singlehotel.py
+			Output: Bereinigte Daten
+			Speicherort Output: ~/hotelierchallenge/scrapers/TA/Scrapes/...
 
 
 ## Ausgabedateien:
 - Die CSV Ausgabedateien werden in den Unterordnern des Ordners "Scrapes" abgespeichert.
-    - Ordner Region: enthält die gescrapten Preise der Kontrollgruppen-Hotels
-    - Ordner spechotel: enthält die gescrapten Preise der einzelnen Hotels
+		    	Ordner Region: enthält die gescrapten Preise der Kontrollgruppen-Hotels
+    			Ordner spechotel: enthält die gescrapten Preise der einzelnen Hotels
+			Ordner Kontrolle: enthält die gescrapten Preise der Kontrollgruppe
 
 ## Aktuellste Anpassungen:
-- Veränderung der CSV Ausgaben (script.py und script_singlehotel.py) sodass nur für die
-  Datenbereinigung und -visualisierung benötigte Angaben ausgegeben werden.
-
-## Archiv:
-- city_1.Run.txt => dies ist das Input-File des ersten Testlaufs (mehrere Hotels für Kontrollgruppe)
-- ursl_1.Run.txt => dies ist das Input-File des ersten Testlaufs (einzelne Hotels)
+- Veränderung der CSV Ausgaben (script.py, script_singlehotel.py und script_singlehotel_Kontrolle.py) sodass nur für die Datenbereinigung und -visualisierung benötigte Angaben ausgegeben werden.
 
 
 // 11.5.2019
