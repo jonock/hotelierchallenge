@@ -60,9 +60,3 @@ for sfolder in os.listdir(rootdir):
     avgmean_appended.drop(avgmean_appended.index, inplace=True)
 
 print('Dates appended, average caluclated - Csv saved')
-
-
-#region_prices = region_prices.apply(pd.to_numeric, errors='coerce').combine_first(region_prices)
-#output = pd.DataFrame([[locality, avg, date]],
-                        #columns = ['Locality', 'AVG_Price', 'Date'])
-#output.to_excel(entry + "_average.xlsx")
