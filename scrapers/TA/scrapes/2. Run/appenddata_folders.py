@@ -5,7 +5,7 @@ from glob import glob
 from glob import iglob
 import os
 
-rootdir = './Test'
+rootdir = './1_SpecHotel'
 #open every file in specified folder
 
 for sfolder in os.listdir(rootdir):
@@ -23,8 +23,8 @@ for sfolder in os.listdir(rootdir):
             df = pd.read_csv(entry)
             all_data = all_data.append(df, ignore_index=True)
     print(str(n)+' mal geschrieben bei '+ sfolder)
-    print(len(all_data))
-    filename = 'appended/' + str(sfolder)+'_append.csv'
+    #print(len(all_data))
+    filename = 'Appended/' + str(sfolder)+'_append.csv'
     all_data.to_csv(filename, header=True, index=False, encoding='utf-8-sig' )
 
-    print('Dates appended - Excel saved')
+print('Dates appended - Excel saved')
