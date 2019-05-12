@@ -5,7 +5,7 @@ from glob import glob
 from glob import iglob
 import os
 
-rootdir = './Test/kontrolle/'
+rootdir = './Test/Kontrolle/'
 #open every file in specified folder
 
 
@@ -17,7 +17,7 @@ for sfolder in os.listdir(rootdir):
 
     avg = pd.DataFrame()
     all_data = pd.DataFrame()
-    avgmean_appended = pd.DataFrame()
+    avgmean_appended = []
     avg.drop(avg.index, inplace=True)
     sfoler = childdir + '/*.csv'
     n=0
@@ -46,17 +46,19 @@ for sfolder in os.listdir(rootdir):
                 avgvar = avgvar.str.strip()
                 avgvar = pd.to_numeric(avgvar)
                 #print(avgvar)
-        print(avgvar)
+#        print(avgvar)
         avgmean = avgvar.mean()
-        avgmean_appended.append(avgmean, ignore_index=True)
-        print(type(avgmean_appended))
+        print('avgmean' +str(avgmean))
+        avgmean_appended.append(avgmean)
+        print(str(avgmean_appended)+ ' jetzt wird appended')
         all_data.drop(all_data.index, inplace=True)
 
 #        print(str(checklist))
 
-    filename = str(short_timestamp)+'_appended.csv'
+    filename = sfolder + str(short_timestamp)+'_appended.csv'
     output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'],[avgmean_appended, short_timestamp]])
     output.to_csv('Test/appended/' + filename, header=True, index=False, encoding='utf-8-sig')
-    avgmean_appended.drop(avgmean_appended.index, inplace=True)
+#    avgmean_appended.drop(avgmean_appended.index, inplace=True)
+    print(avgmean_appended)
 
 print('Dates appended, average caluclated - Csv saved')
