@@ -70,8 +70,10 @@ for sfolder in os.listdir(rootdir):
 #        print(str(checklist))
 
     filename = sfolder + str(short_timestamp)+'_appended.csv'
-    output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'], [avgmean_df, avgmean_timestamps_df]])
-    output.to_csv('Test/appended/' + filename, header=True, index=True, encoding='utf-8-sig')
+    avgmean_df = pd.concat([avgmean_df, avgmean_timestamps_df],axis=1)
+    print(avgmean_df)
+    output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'], [avgmean_df]])
+    avgmean_df.to_csv('Test/appended/' + filename, header=False, index=False, encoding='utf-8-sig')
 #    avgmean_appended.drop(avgmean_appended.index, inplace=True)
     avgmean_appended=[]
 #    print(avgmean_appended)
