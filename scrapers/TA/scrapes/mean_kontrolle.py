@@ -26,10 +26,9 @@ for sfolder in os.listdir(rootdir):
     checklist = ['checklist']
 #2. Schleife Jedes File in gegebenem Ordner durchgeben
     for entry in glob(sfoler):
-        print(entry)
         # Falls File bereits gelesen wird übersprungen
         if entry in checklist:
-            print('CONTINUE')
+#            print('CONTINUE')
             continue
 # Jedes file wird geöffnet und als Dataframe eingelesen -> Timestamp wird extrahiert
         with open(entry, 'r') as f:
@@ -69,14 +68,14 @@ for sfolder in os.listdir(rootdir):
 
 #        print(str(checklist))
 
-    filename = sfolder + str(short_timestamp)+'_appended.csv'
+    filename = sfolder + '_appended.csv'
     avgmean_df = pd.concat([avgmean_df, avgmean_timestamps_df],axis=1)
-    print(avgmean_df)
     output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'], [avgmean_df]])
     avgmean_df.to_csv('Test/appended/' + filename, header=False, index=False, encoding='utf-8-sig')
 #    avgmean_appended.drop(avgmean_appended.index, inplace=True)
     avgmean_appended=[]
 #    print(avgmean_appended)
     checklist= ['leer']
+    print(filename + ' geschrieben')
 
 print('Dates appended, average caluclated - Csv saved')
