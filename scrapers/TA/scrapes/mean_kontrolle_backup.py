@@ -49,8 +49,8 @@ for sfolder in os.listdir(rootdir):
                         #print ('all_data: ' + all_data)
                     avgvar = (all_data.loc[:, "price_per_night"]).replace(' ','')
                     #avgvar.apply(pd.to_numeric) #errors='coerce'
-                    avgvar = avgvar.str.strip()
-                    avgvar = pd.to_numeric(avgvar)
+                    #avgvar = avgvar.str.strip()
+                    avgvar = pd.to_numeric(avgvar, errors='coerce')
                 #print(avgvar)
 #        print(avgvar)
         avgmean = avgvar.mean()
