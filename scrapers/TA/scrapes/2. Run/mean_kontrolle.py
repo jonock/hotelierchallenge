@@ -5,7 +5,7 @@ from glob import glob
 from glob import iglob
 import os
 
-rootdir = './Test/Kontrolle/'
+rootdir = './1_Kontrolle_Region/'
 #open every file in specified folder
 
 
@@ -71,7 +71,7 @@ for sfolder in os.listdir(rootdir):
     filename = sfolder + '_appended.csv'
     avgmean_df = pd.concat([avgmean_df, avgmean_timestamps_df],axis=1)
     output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'], [avgmean_df]])
-    avgmean_df.to_csv('Test/appended/' + filename, header=False, index=False, encoding='utf-8-sig')
+    avgmean_df.to_csv('Appended_ControlHotels/' + filename, header=False, index=False, encoding='utf-8-sig')
 #    avgmean_appended.drop(avgmean_appended.index, inplace=True)
     avgmean_appended=[]
 #    print(avgmean_appended)
