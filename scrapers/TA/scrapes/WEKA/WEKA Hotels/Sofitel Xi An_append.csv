@@ -1,4 +1,4 @@
-﻿price_per_night,timestamp,Influencer_or_Not,Index
+﻿price_per_night,timestamp,Influencer_or_Not,Hotel_ID
  102,2019-05-07 13:12:00.773843,No Influencer,75
  116,2019-05-03 02:12:01.787336,No Influencer,75
  116,2019-05-01 18:12:01.084057,No Influencer,75
