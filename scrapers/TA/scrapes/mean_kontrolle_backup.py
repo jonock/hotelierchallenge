@@ -5,7 +5,7 @@ from glob import glob
 from glob import iglob
 import os
 
-rootdir = './Test/Kontrolle/'
+rootdir = './1_Kontrolle_Region/'
 #open every file in specified folder
 
 
@@ -48,9 +48,11 @@ for sfolder in os.listdir(rootdir):
                         all_data = all_data.append(dg, ignore_index=True)
                         #print ('all_data: ' + all_data)
                     avgvar = (all_data.loc[:, "price_per_night"]).replace(' ','')
-                    #avgvar.apply(pd.to_numeric) #errors='coerce'
-                    #avgvar = avgvar.str.strip()
-                    avgvar = pd.to_numeric(avgvar, errors='coerce')
+                    #print(type(avgvar))
+                    for i,v in avgvar.items():
+                        if (isinstance(v, str)):
+                            avgvar.iloc[i] = float(v.replace(' ',''))
+                    avgvar = pd.to_numeric(avgvar)
                 #print(avgvar)
 #        print(avgvar)
         avgmean = avgvar.mean()
@@ -71,7 +73,7 @@ for sfolder in os.listdir(rootdir):
     filename = sfolder + '_appended.csv'
     avgmean_df = pd.concat([avgmean_df, avgmean_timestamps_df],axis=1)
     output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'], [avgmean_df]])
-    avgmean_df.to_csv('./Test/appended/' + filename, header=False, index=False, encoding='utf-8-sig')
+    avgmean_df.to_csv('Appended_ControlHotels/' + filename, header=False, index=False, encoding='utf-8-sig')
 #    avgmean_appended.drop(avgmean_appended.index, inplace=True)
     avgmean_appended=[]
 #    print(avgmean_appended)
