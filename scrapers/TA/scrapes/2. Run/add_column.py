@@ -6,11 +6,14 @@ import xlsxwriter
 import numpy as np
 from glob import glob
 
+n = 0
 
-for entry in glob('Weka einzelne Hotels/*.csv'):
+for entry in glob('WEKA Hotels/*.csv'):
     with open(entry, 'r') as f:
         prices = pd.read_csv (entry)
-        prices['Influencer_or_Not'] = 'Influencer'
+        n = n + 1
+        hotel_id = str(n)
+        prices['Hotel_ID'] = hotel_id
         prices.to_csv(entry, header=True, index=False, encoding='utf-8-sig')
         print (str(entry) + " New column added")
 
