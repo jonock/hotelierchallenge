@@ -5,9 +5,6 @@
 - Die Idee ist es, nicht nur Preise für einzelne Hotels zu scrapen sondern diese mit einer Kontrollgruppe zu vergleichen
   Aus diesem Grund, gibt es einige Skripte sowie Input-Files mehrfach.
 
-!!! Wichtig: zur Zeit gibt es ein strukturelles Problem mit der Kontrollgruppe, da nicht zuverlässig die selben 30 Hotels über den
-    Zeitraum gescrapt werden. Dateien und Skripte welche mit Kontrolle bezeichnet sind dienen dazu dieses Problem zu umgehen (WORK IN PROGRESS)
-
 ## Input-Files:
 - city.txt = 
 			Dies ist der Input für script.py. Beim Input handelt es sich um den Namen einer Stadt, für die Hotel-Preise gescrapt werden sollen.
@@ -65,5 +62,18 @@
 ## Aktuellste Anpassungen:
 - Veränderung der CSV Ausgaben (script.py, script_singlehotel.py und script_singlehotel_Kontrolle.py) sodass nur für die Datenbereinigung und -visualisierung benötigte Angaben ausgegeben werden.
 
+## Quellen:
+- tripadvisor_scraper.py =
+			Quelle: GitHub
+			Author: ScrapeHero
+			Link: https://gist.github.com/scrapehero/1c425fdf290144cd4c7c635587feb459
+- tripadvisor_scraper_spechotel.py = 
+			Quelle: GitHub
+			Author: ScrapeHero
+			Link: https://gist.github.com/scrapehero/1c425fdf290144cd4c7c635587feb459
+- tripadvisor_scraper_spechotel_Kontrolle.py = 
+			Quelle: GitHub
+			Author: ScrapeHero
+			Link: https://gist.github.com/scrapehero/1c425fdf290144cd4c7c635587feb459
 
-// 11.5.2019
+// 12.5.2019

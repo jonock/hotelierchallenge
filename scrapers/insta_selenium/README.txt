@@ -1,18 +1,29 @@
-Der Ordner insta_selenium enthält das Skript im Bezug auf die Hashtag-Anzahl Scraping auf Instagram:
+## Der Ordner insta_selenium enthält das Skript im Bezug auf die Hashtag-Anzahl Scraping auf Instagram:
 
-Input-Files:
-- hashtaglist.txt = Dies ist der Input für script.py. Beim Input handelt es sich um eine Liste beliebiger Hashtags, für die die Anzahl gescrapt werden soll.
+## Input-Files:
+- hashtaglist.txt = 
+		Dies ist der Input für script.py. Beim Input handelt es sich um eine Liste beliebiger Hashtags, für die die Anzahl gescrapt werden soll.
 
-- Manuelle Abfrage = durch Anpassung des script.py können die Hashtags auch ohne Zusatzfile auf Abfrage hin direkt analysiert werden.
+- Manuelle Abfrage =
+		Durch Anpassung des script.py können die Hashtags auch ohne Zusatzfile auf Abfrage hin direkt analysiert werden.
 
 (- us-cities.txt = hier handelt es sich um ein test input file.)
 
 Python-Skripte:
-- script.py = Dieses Skript läuft mit Selenium und führt das Hashtag-Scraping für jeden beliebigen Hashtag aus und erstellt eine CSV-Datei mit den Anzahl gefundener Hashtags
+- script.py = 
+		Zweck: Dieses Skript läuft aus Selenium und führt ein Scraping für Hashtags durch.
+		Input: hashtaglist.txt mit Hashtags für Regionen
+		Ausgeführte Funktionen: hashtaghandler.py
+		Output: CSV-Datei mit Anzahl an gefundenen Hashtags
+		Speicherort Output: ~/hotelierchallenge/scrapers/insta_selenium/scrapes
 
-=> die im Skript verwendeten Funktionen sind im folgenden .py File definiert:
-	- hashtaghandler.py
 
 Die CSV Ausgabedateien werden in den Unterordner des Ordners "Scrapes" abgespeichert.
 
-// 29.3.2019
+## Quellen:
+- hashtaghandler.py =
+		Quelle: –
+		Author: Jonathan Noack
+		Link: –
+
+// 13.5.2019
