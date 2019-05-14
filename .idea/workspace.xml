@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9550fa5-013d-489e-b76d-e6c165b4224b" name="Default Changelist" comment="Zugriff auf zentrales Base-File">
-      <change beforePath="$PROJECT_DIR$/.idea/hotelierchallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hotelierchallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Abu Dhabi_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Abu Dhabi_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Belek_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Belize_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Belize_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Capri_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Capri_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Cartagena_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Edinburgh_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Edinburgh_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Ennetbürgen_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Male_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Mauritius_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Nusa Dua_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Nusa Dua_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Ocho Rios_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Palm Springs_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/St. Lucia_appended.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Venice_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Venice_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Xi An_appended.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/Appended_ControlHotels/Xi An_appended.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/mean_kontrolle.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/mean_kontrolle.py" afterDir="false" />
-    </list>
+    <list default="true" id="a9550fa5-013d-489e-b76d-e6c165b4224b" name="Default Changelist" comment="Zugriff auf zentrales Base-File" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/mean_kontrolle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="687">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
                 <element signature="e#96#115#0" expanded="true" />
               </folding>
@@ -107,7 +88,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,6 +134,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,7 +244,7 @@
     <frame x="54" y="35" width="2506" height="1405" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21813725" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22303921" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -316,11 +297,6 @@
           <url>file://$PROJECT_DIR$/scrapers/TA/tripadvisor_scraper.py</url>
           <line>140</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/mean_kontrolle.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -426,6 +402,23 @@
           <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapers/TA/scrapes/2. Run/mean_kontrolle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+          <folding>
+            <element signature="e#96#115#0" expanded="true" />
           </folding>
         </state>
       </provider>

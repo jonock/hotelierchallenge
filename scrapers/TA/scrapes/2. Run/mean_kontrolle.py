@@ -1,6 +1,7 @@
 #this script will go through the hotel_price files and create one file with all data per hotel
 
 import pandas as pd
+import numpy as np
 from glob import glob
 from glob import iglob
 import os
@@ -19,6 +20,7 @@ for sfolder in os.listdir(rootdir):
     avg = pd.DataFrame()
     all_data = pd.DataFrame()
     avgmean_appended = []
+    avgmeanB_appended = []
     avgmean_timestamps = []
     avg.drop(avg.index, inplace=True)
     sfoler = childdir + '/*.csv'
@@ -56,12 +58,18 @@ for sfolder in os.listdir(rootdir):
                 #print(avgvar)
 #        print(avgvar)
         avgmean = avgvar.mean()
+        avgvarB = avgvar.copy()
+        avgvarB[avgvarB == 0] = np.nan
+        avgnonzero = np.nanmean(avgvarB, axis = 0)
         #Einzelner Durschnitt gerechnet - in avgmean abgespeichert
         avgmean_appended.append(avgmean)
         avgmean_timestamps.append(short_timestamp)
+        avgmeanB_appended.append(avgnonzero)
+#        avgmeanB_timestamps.append(short_timestamp)
 #        print(avgmean_timestamps)
         avgmean_df = pd.DataFrame(data=avgmean_appended)
         avgmean_timestamps_df = pd.DataFrame(data=avgmean_timestamps)
+        avgmeanB_df = pd.DataFrame(data=avgmeanB_appended)
 #        print(avgmean_df)
 #        print(str(avgmean_appended)+ ' jetzt wird appended')
         short_timestamp = 0
@@ -71,8 +79,8 @@ for sfolder in os.listdir(rootdir):
 #        print(str(checklist))
 
     filename = sfolder + '_appended.csv'
-    avgmean_df = pd.concat([avgmean_df, avgmean_timestamps_df],axis=1)
-    output = pd.DataFrame([['Mean_prices_per_night', 'Timestamp'], [avgmean_df]])
+    avgmean_df = pd.concat([avgmean_df, avgmeanB_df, avgmean_timestamps_df],axis=1)
+    output = pd.DataFrame([['Mean_prices_per_night', 'Mean_prices_without_zeroes' ,'Timestamp'], [avgmean_df]])
     avgmean_df.to_csv('Appended_ControlHotels/' + filename, header=False, index=False, encoding='utf-8-sig')
 #    avgmean_appended.drop(avgmean_appended.index, inplace=True)
     avgmean_appended=[]
