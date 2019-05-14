@@ -3,27 +3,25 @@
 import pandas as pd
 from glob import glob
 
-#store data in pandas DataFrame
-all_data = pd.DataFrame()
-#open every file in specified folder
 
-for entry in glob('Test/*.csv'):
+for entry in glob('WEKA Hotels Backup/*.csv'):
     with open(entry, 'r') as f:
         df = pd.read_csv(entry)
-        for i,v in df.items():
-            if (isinstance(v, str)):
-                df.iloc[i] = float(v.replace(' ',''))
-        #newdf = pd.to_numeric(df['price_per_night'])
-        indexNames = df[df['price_per_night'] == 0 ].index
+        df['price_per_night'] = df['price_per_night'].str.strip()
+        #print(df['price_per_night'])
+        #df = pd.to_numeric(df['price_per_night'])
+        indexNames = df[df['price_per_night'] == '0' ].index
         df.drop(indexNames, inplace=True)
-        all_data.to_csv(entry, header=True, index=False, encoding='utf-8-sig' )
+        df.to_csv(entry, header=True, index=False, encoding='utf-8-sig' )
+        print("Zero Values cleaned")
+print("Completly All Zero Values cleaned")
 
-print("Zero Values cleaned")
+all_data = pd.DataFrame()
 
-#for entry in glob('WEKA Hotels Backup/*.csv'):
-#    with open(entry, 'r') as f:
-#        df = pd.read_csv(entry)
-#        all_data = all_data.append(df, ignore_index=True)
-#        all_data.to_csv('All Hotels with Class', header=True, index=False, encoding='utf-8-sig' )
+for entry in glob('WEKA Hotels Backup/*.csv'):
+    with open(entry, 'r') as f:
+        df = pd.read_csv(entry)
+        all_data = all_data.append(df, ignore_index=True)
+        all_data.to_csv('All Hotels with Class', header=True, index=False, encoding='utf-8-sig' )
 
-#print('Data appended - Excel saved')
+print('Data appended - Excel saved')
