@@ -35,8 +35,8 @@ n = 1
 #        print(df.head())
 
 n = 0
-p = 1
-with open('data/Test1.csv') as f:
+p = 0
+with open('data/Abu-Dhabi Sci Kit Preparation.csv') as f:
     df = pd.read_csv(f)
     #print(df.head())
     #first_value = df.iloc[1:2,1:2]
@@ -44,6 +44,9 @@ with open('data/Test1.csv') as f:
     for line in df:
         n = n + 1
         p = p + 1
-        x = df.iloc[n:p,n:p]
-        print (x)
+        #x = df.iloc[:1,-2:]
+        df.at[n:,-p:] = 0
+        #print (df.head())
+    df.to_csv('data/Versuch_2.csv', header=True, index=False, encoding='utf-8-sig')
     #print(df.head())
+print("New File created")
