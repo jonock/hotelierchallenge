@@ -1,11 +1,15 @@
-#this script will go through the hotel_price files and delete unnecessary RainbowClubSA
+########  Twitter Cleaning Influencer CSVs   ########
+
+### Description
+### This script cleans unnecessary information from influencer scripts
+### and appends them to one dataframe to be written into a new csv
+
 
 import pandas as pd
 import os
 import xlsxwriter
 from glob import glob
 
-#First Clean Data
 
 influencers = pd.DataFrame()
 all_influencers = pd.DataFrame()
@@ -26,16 +30,9 @@ for entry in glob('Exports/*.csv'):
             influencers.drop('Date', axis=1, inplace=True)
         except:
             next
-        #n = n + 1
-        #print(n, 'dropped')
 
+        #Append seperate files of influencers to one Dataframe
         all_influencers = all_influencers.append(influencers, ignore_index=True)
-
-        #Remove duplicates based on column TweetId
-        #duplicated_influencers = all_influencers.duplicated(subset=['TweetID'], keep='first')
-        #all_influencers = all_influencers[~duplicated_influencers]
-
-        #influencers.drop('TweetID', axis=1, inplace=True)
 
         print(n, x, len(all_influencers))
         all_influencers.to_csv('Influencers_appended.csv', header=True, index=False, encoding='utf-8-sig')

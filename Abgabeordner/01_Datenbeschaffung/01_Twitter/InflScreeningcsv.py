@@ -1,20 +1,8 @@
-########                                    ########
 ########  Hotel Influencer Twitter Script   ########
-########          19 March 2019             ########
-########____________________________________########
 
 ### Description
-### This script write a csv with tweets containing the given hashtags
+### This script writes a csv with tweets containing the given hashtags
 ### and adds info regarding followers count and retweets etc.
-
-
-###Issues / Improvements:
-    #amount of tweets is not ideal,
-    #sort csv to show highest potential influencer first
-    #show media url, issue with tweet.entities
-    #filter out RTs
-
-
 
 import tweepy
 import csv
@@ -23,10 +11,10 @@ import datetime
 from datetime import date, timedelta
 
 # Authentifizierung mit Twitter
-consumer_key = 'E7QiU0rxmcOTzU1BtBHmTwdqo'
-consumer_secret = 'Wpq0iapw4mdgnuAbuRcTjUrAhCq2WUh9TEADj27JjUsnzPWPhy'
-access_token = '17225770-a7eDWlIh9FbzcMeU0yawwfXo2gA5t6yJV5hzovefn'
-access_token_secret = '6AvyV8iIcIvDmqCdPA3YtAsSw2nOx7EXV84bTy7XglHsA'
+consumer_key = 'xyz'
+consumer_secret = 'xyz'
+access_token = 'xyz'
+access_token_secret = 'xyz'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -63,5 +51,3 @@ for tweet in tweepy.Cursor(api.search, show_user = True, q = hashtag,lang="en", 
 
 
 print("Script is done - Influencer CSV is ready")
-
-#tweet.text.encode('utf-8')])
