@@ -1,0 +1,31 @@
+hotel_name,url,locality,timestamp,reviews,tripadvisor_rating,checkIn,checkOut,price_per_night,booking_provider,no_of_deals,hotel_features
+Somerset Inn,http://www.tripadvisor.com/Hotel_Review-g298571-d8128757-Reviews-Somerset_Inn-Male.html,Male,,206 ,,2019/04/13,2019/04/14, 80,Agoda.com,11,"Free Wifi,Breakfast included"
+Hotel Octave,http://www.tripadvisor.com/Hotel_Review-g298571-d3204127-Reviews-Hotel_Octave-Male.html,Male,,256 ,,2019/04/13,2019/04/14, 65,Agoda.com,8,"Free Wifi,Breakfast included"
+The Somerset Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d5937841-Reviews-The_Somerset_Hotel-Male.html,Male,,423 ,,2019/04/13,2019/04/14, 220,Trip.com,11,"Free Wifi,Breakfast included"
+Sala Boutique Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d2216798-Reviews-Sala_Boutique_Hotel-Male.html,Male,,230 ,,2019/04/13,2019/04/14, 139,Expedia.ch,8,"Free Wifi,Free parking"
+Samann Grand,http://www.tripadvisor.com/Hotel_Review-g298571-d15240137-Reviews-Samann_Grand-Male.html,Male,,40 ,,2019/04/13,2019/04/14, 150,Expedia.ch,6,"Free Wifi,Breakfast included,Visit hotel website"
+"Hotel Jen Male, Maldives by Shangri-La",http://www.tripadvisor.com/Hotel_Review-g298571-d1477772-Reviews-Hotel_Jen_Male_Maldives_by_Shangri_La-Male.html,Male,,737 ,,2019/04/13,2019/04/14, 235,HotelJen.com,12,"Free Wifi,Pool,Visit hotel website"
+Hotel Unima Grand,http://www.tripadvisor.com/Hotel_Review-g298571-d12161850-Reviews-Hotel_Unima_Grand-Male.html,Male,,71 ,,2019/04/13,2019/04/14, 78,Expedia.ch,7,"Free Wifi,Free parking"
+Champa Central Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d584466-Reviews-Champa_Central_Hotel-Male.html,Male,,131 ,,2019/04/13,2019/04/14, 102,Agoda.com,11,"Free Wifi,Breakfast included,Visit hotel website"
+Surf View Raalhugandu,http://www.tripadvisor.com/Hotel_Review-g298571-d6610431-Reviews-Surf_View_Raalhugandu-Male.html,Male,,76 ,,2019/04/13,2019/04/14, 69,Expedia.ch,9,"Free Wifi,Restaurant"
+Novina,http://www.tripadvisor.com/Hotel_Review-g298571-d12445621-Reviews-Novina-Male.html,Male,,97 ,,2019/04/13,2019/04/14, 59,Booking.com,7,"Free Wifi,Breakfast included"
+The Beehive,http://www.tripadvisor.com/Hotel_Review-g298571-d1016311-Reviews-The_Beehive-Male.html,Male,,139 ,,2019/04/13,2019/04/14, 77,Agoda.com,12,"Free Wifi,Breakfast included"
+Vinorva Maldives,http://www.tripadvisor.com/Hotel_Review-g298571-d12059585-Reviews-Vinorva_Maldives-Male.html,Male,,18 ,,2019/04/13,2019/04/14, 53,Agoda.com,7,"Free Wifi,Beach"
+Athiriveli,http://www.tripadvisor.com/Hotel_Review-g298571-d13006406-Reviews-Athiriveli-Male.html,Male,,10 ,,2019/04/13,2019/04/14, 54,Expedia.ch,6,"Free Wifi,Free parking"
+Maagiri Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d1056444-Reviews-Maagiri_Hotel-Male.html,Male,,33 ,,2019/04/13,2019/04/14, 202,Hotels.com,7,"Free Wifi,Restaurant"
+House Clover,http://www.tripadvisor.com/Hotel_Review-g298571-d1554805-Reviews-House_Clover-Male.html,Male,,109 ,,2019/04/13,2019/04/14, 70,Expedia.ch,7,"Free Wifi,Visit hotel website"
+City King,http://www.tripadvisor.com/Hotel_Review-g298571-d9558250-Reviews-City_King-Male.html,Male,,12 ,,2019/04/13,2019/04/14, 62,Agoda.com,0,"Free Wifi,Breakfast included"
+Paralian Hulhumale,http://www.tripadvisor.com/Hotel_Review-g298571-d14932740-Reviews-Paralian_Hulhumale-Male.html,Male,,7 ,,2019/04/13,2019/04/14, 77,Expedia.ch,0,"Free Wifi,Free parking"
+Skai Lodge,http://www.tripadvisor.com/Hotel_Review-g298571-d1056462-Reviews-Skai_Lodge-Male.html,Male,,85 ,,2019/04/13,2019/04/14, 75,ebookers.ch,8,Free Wifi
+Six in One,http://www.tripadvisor.com/Hotel_Review-g298571-d13799170-Reviews-Six_in_One-Male.html,Male,,5 ,,2019/04/13,2019/04/14, 81,Expedia.ch,6,
+Mookai Suites,http://www.tripadvisor.com/Hotel_Review-g298571-d1762014-Reviews-Mookai_Suites-Male.html,Male,,38 ,,2019/04/13,2019/04/14, 79,Agoda.com,7,"Free Wifi,Restaurant"
+Green Flora,http://www.tripadvisor.com/Hotel_Review-g298571-d13238837-Reviews-Green_Flora-Male.html,Male,,5 ,,2019/04/13,2019/04/14, 103,Expedia.ch,5,"Free Wifi,Restaurant"
+Marble Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d1056456-Reviews-Marble_Hotel-Male.html,Male,,82 ,,2019/04/13,2019/04/14, 190,Roomdi.com,10,"Free Wifi,Free parking"
+Coral Hotel & Spa,http://www.tripadvisor.com/Hotel_Review-g298571-d2699940-Reviews-Coral_Hotel_Spa-Male.html,Male,,31 ,,2019/04/13,2019/04/14, 43,Agoda.com,0,"Free Wifi,Breakfast included"
+Mookai Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d806029-Reviews-Mookai_Hotel-Male.html,Male,,81 ,,2019/04/13,2019/04/14, 63,Agoda.com,10,"Free Wifi,Pool"
+Kaani Lodge,http://www.tripadvisor.com/Hotel_Review-g298571-d1522963-Reviews-Kaani_Lodge-Male.html,Male,,54 ,,2019/04/13,2019/04/14, 47,Expedia.ch,8,"Room service,Free Internet"
+Beach Front Hotel,http://www.tripadvisor.com/Hotel_Review-g298571-d14860565-Reviews-Beach_Front_Hotel-Male.html,Male,,1 review,,2019/04/13,2019/04/14, 80,Booking.com,0,
+Off Day Inn,http://www.tripadvisor.com/Hotel_Review-g298571-d6164527-Reviews-Off_Day_Inn-Male.html,Male,,48 ,,2019/04/13,2019/04/14, 50,Booking.com,7,"Free Wifi,Restaurant"
+Ari Villa,http://www.tripadvisor.com/Hotel_Review-g298571-d15556403-Reviews-Ari_Villa-Male.html,Male,,0 ,,2019/04/13,2019/04/14, 85,Expedia.ch,0,
+Coral Grand Beach & Spa,http://www.tripadvisor.com/Hotel_Review-g298571-d15676991-Reviews-Coral_Grand_Beach_Spa-Male.html,Male,,0 ,,2019/04/13,2019/04/14, 159,Hotels.com,0,
+Moodhu Surf House,http://www.tripadvisor.com/Hotel_Review-g298571-d15521973-Reviews-Moodhu_Surf_House-Male.html,Male,,0 ,,2019/04/13,2019/04/14,0,Expedia.ch,5,
