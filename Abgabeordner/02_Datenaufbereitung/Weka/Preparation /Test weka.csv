@@ -1,0 +1,9 @@
+@relation Hotel
+
+@attribute Name {}
+@attribute Preis numeric
+@attribute class {Ja,Nein}
+@attribute Datum  'yyyy-MM-dd'
+
+@data
+Ayodya Resort Bali,Ja,Ê131,2019-04-23 13:20 
