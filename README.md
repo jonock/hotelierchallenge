@@ -12,3 +12,15 @@
 
 - Ordner "Tableau"
     - wird die Tableau Workbooks zur Datenvisualisierung enthalten
+    
+## Installation
+- Clone auf einem Server mit Ubuntu 16.04 LTS
+
+
+- Ausführen des install.sh Skripts
+'sudo bash ./install.sh'
+
+- Crontab für Files einrichten
+
+'12 * * * * cd ~/hotelierchallenge/scrapers/TA && python3 ./script.py
+12 * * * * cd ~/hotelierchallenge/scrapers/TA && python3 ./spechotelscript.py'
