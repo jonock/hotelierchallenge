@@ -1,5 +1,8 @@
 #!/bin/sh
 echo Jetzt wird lxml installiert
+export LC_ALL=C
+sudo apt-get update
+sudo apt-get install python3-pip -y
 sudo apt-get install unzip -y
 sudo apt-get install libxml2-dev -y libxslt1-dev -y
 sudo apt-get install python3-lxml python-lxml -y
@@ -12,5 +15,6 @@ sudo chmod a+x chromedriver
 mv ./chromedriver scrapers/specHotelChains/
 rm chromedriver_linux64.zip
 echo Ok, jetzt noch die Python extensions
-pip install -r requirements.txt
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
 echo ok, das wars
