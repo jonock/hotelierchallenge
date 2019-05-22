@@ -23,8 +23,12 @@ sudo bash ./install.sh
 ```
 
 - Crontab für Files einrichten
+(git pull und git push funktioniert nur mit SSH-Fingerprint)
+
 
 ```
+11 * * * * cd ~/hotelierchallenge && git pull
 12 * * * * cd ~/hotelierchallenge/scrapers/TA && python3 ./script.py
 12 * * * * cd ~/hotelierchallenge/scrapers/TA && python3 ./spechotelscript.py
+01 08 * * * cd ~/hotelierchallenge && bash gitCommitDigitalOcean.sh
 ```
