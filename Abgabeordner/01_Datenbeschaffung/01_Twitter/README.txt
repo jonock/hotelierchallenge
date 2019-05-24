@@ -1,11 +1,16 @@
 # Der Ordner Influencer_Screening enthält alle Skripte im Bezug auf das Hotel-Post Monitoring auf Twitter
 
-InflScreeningcsv.py:
-- Das Skript sucht Posts mit den Hashtags #hotel oder #resort auf Twitter und erstellt eine CSV-Datei.
+## Input-Files:
+
+## Python-Skripte.
+- InflScreeningcsv.py = 
+		Zweck: Das Skript sucht Posts anhand von Hashtags auf Twitter
+		Input: Hashtags (#hotel; #resort)
+		Ausgeführte Funktionen: –
+		Output: CSV-Datei mit den Posts pro Hashtag
+		Speicherort Output: ~/hotelierchallenge/Twitter_Scripts/Influencer_Screening/Exports
 
 => Die Datei beinhaltet den Tweet ID, Zeitpunkt des Posts, User-Name, Anzahl Follower des Users, Anzahl Retweets, Anzahl Likes.
-
-Die CSV-Ausgaben werden im Ordner Exports gespeichert.
 
 Der Name der CSV-Dateien ist wie folgt zu verstehen:
 
@@ -17,5 +22,14 @@ https://twitter.com/anyuser/status/ID      --> Einfügen der Tweet ID anstelle v
 Bspw.: https://twitter.com/anyuser/status/1109407634686398465
 
 Folgende Skripte wurden verwendet um die stündlichen Scrapes zu bereinigen und Duplikate zu entfernen:
-- influencers_cleandata.py --> nicht verwendete Daten entfernen, alle Dateien zu einer Datei konsolidieren
-- removeduplicates.py --> Duplikate entfernen 1. TweetID und 2. User
+- influencers_cleandata.py =
+		Zweck: nicht verwendete Daten entfernen, alle Dateien zu einer Datei konsolidieren
+- removeduplicates.py =
+		Zweck: Duplikate entfernen 1. TweetID und 2. User
+
+
+## Quellen:
+- InflScreeningcsv.py =
+		Quelle: –
+		Author: Jonathan Noack
+		Link: –
