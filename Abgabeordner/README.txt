@@ -20,4 +20,7 @@ Instagram, Tripadvisor und beim Dubai-Hotel verwendet wurden
 #Datenanalyse und -visualisierung
 - Die Ordner der Datenvisualisierung enthalten sämtliche Varianten der Visualisierung der Datenanalyse
 (d.h. auch Visualisierungen die schlussendlich in der Präsentation nicht verwendet wurden)
-- 
+
+
+#Allgemeine Information:
+- Quellenangaben der verwendeten und modifizierten Skripte sind in den Read-Me's der Unterordner enthalten

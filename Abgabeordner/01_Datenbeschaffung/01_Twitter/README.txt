@@ -3,7 +3,7 @@
 ## Input-Files:
 
 ## Python-Skripte.
-- InflScreeningcsv.py = 
+- InflScreeningcsv.py =
 		Zweck: Das Skript sucht Posts anhand von Hashtags auf Twitter
 		Input: Hashtags (#hotel; #resort)
 		Ausgeführte Funktionen: –
@@ -25,11 +25,11 @@ Folgende Skripte wurden verwendet um die stündlichen Scrapes zu bereinigen und 
 - influencers_cleandata.py =
 		Zweck: nicht verwendete Daten entfernen, alle Dateien zu einer Datei konsolidieren
 - removeduplicates.py =
-		Zweck: Duplikate entfernen 1. TweetID und 2. User
+		Zweck: Duplikate entfernen 1. TweetID (entfernt duplikate Tweets) und 2. User (reduziert Tweets auf einen per Users)
 
 
 ## Quellen:
 - InflScreeningcsv.py =
-		Quelle: –
-		Author: Jonathan Noack
-		Link: –
+		Quelle: Vickyqian
+		Author: Tobias Rordorf
+		Link: Skript in Anlehnung an https://gist.github.com/vickyqian/f70e9ab3910c7c290d9d715491cde44c
