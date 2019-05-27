@@ -3,7 +3,7 @@
 ## Input-Files:
 
 ## Python-Skripte:
-- chainScript.py = 
+chainScript.py = 
 		Zweck: Dieses Skript läuft auf Selenium und führt ein Scraping der Preise für das Marriott-Hotel Qasr Al Sarab durch.
 		Input: Hotel-Link
 		Ausgeführte Funktionen: hotelhandler.py
