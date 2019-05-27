@@ -1,4 +1,4 @@
-## Der Ordner TA enthält alle Skripte im Bezug auf das Price Scraping auf Tripadvisor:
+# Der Ordner TA enthält alle Skripte im Bezug auf das Price Scraping auf Tripadvisor:
 
 
 ## Generelle Information:
