@@ -1,4 +1,8 @@
 # Hotelier Challenge - Dokumentation
+## This repository contains all relevant scripts and data for the «Hotelier-Case»
+The code was developed as a student project at the University of St. Gallen. 
+
+
 ## Dieses Repository enthält alle verwendeten Skripte für den Hotelier-Case
 
 - Ordner "Scrapers"
