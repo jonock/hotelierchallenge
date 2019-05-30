@@ -2,7 +2,7 @@
 
 ## Python-Skripte:
 appenddata.py
-Zweck: dieses Skript fügt sämtliche Preis-Datenpunkte und Timestamps in eine CSV pro Hotel oder Region
+Zweck: dieses Skript fügt sämtliche Preis-Datenpunkte und Timestamps in eine CSV pro Hotel oder Region zusammen
 
 delta_calculation.py
 Zweck: dieses Skript wurde zur Kontrolle der Durchschnittswerte verwendet. Es vergleicht zwei Arten der Durchschnittsberechnung
